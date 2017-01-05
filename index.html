@@ -11,6 +11,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
 
         <!-- Angular Material Library -->
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
@@ -31,7 +32,7 @@
                 <md-toolbar>
                     <div class="md-toolbar-tools">
                         <md-button class="md-icon-button" aria-label="Settings">
-                            <ng-md-icon icon="menu"></ng-md-icon>
+                            <ng-md-icon icon="menu" style="fill: rgb(68, 37, 128)"></ng-md-icon>
                         </md-button>
                         <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
                     </div>
@@ -40,11 +41,13 @@
 
             <md-content>
                 <md-list flex>
-                    <md-list-item class"md-2-line" ng-repeat="item in mainMenu" ng-click="null">
+                    <md-list-item class="md-2-line" ng-repeat="item in mainMenu" ng-click="null">
+                        <ng-md-icon icon="{{item.icon}}" style="margin-right: 8px; fill: rgb(68, 37, 128)"></ng-md-icon>
                         <div class="md-list-item-text" layout="column">
-                            <span class="subHead">{{ item.title }}</span>
+                            <span class="subHead turquoise">{{ item.title }}</span>
                             <span class="subSubHead">{{ item.subtitle }}</span>
                         </div>
+                        <md-divider md-inset ng-if="!$last"></md-divider>
                     </md-list-item>
                 </md-list>
             </md-content>
