@@ -1,0 +1,15 @@
+md-divider {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+h3 {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+h4 {
+    margin-top: 0;
+    font-weight: normal;
+    line-height: 94%;
+}

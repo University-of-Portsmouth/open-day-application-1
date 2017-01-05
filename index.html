@@ -1,10 +1,10 @@
 <html lang="en" >
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-</head>
-<body ng-app="UoPVisitorApp" ng-controller="mainController" ng-cloak>
+  <link rel="stylesheet" type="text/css" href="style.css"></link>  
   
   <!-- Angular Material requires Angular.js Libraries -->
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -14,14 +14,55 @@
 
   <!-- Angular Material Library -->
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+</head>
+<body ng-app="UoPVisitorApp" ng-controller="mainController" ng-cloak layout-gt-sm="column" layout="column">
   
   <script type="text/javascript">    
     angular.module('UoPVisitorApp', ['ngMaterial'])
-		.controller('mainController', function ($scope) { } );
-  </script>
-  
-<md-content>
+    .config(function($mdIconProvider) {
+        $mdIconProvider
+            .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24);
+    })
+    .controller('mainController', function ($scope) { 
+        $scope.mainMenu = [
+            {
+                icon: 'placeholder',
+                title: 'Building locator',
+                subtitle: 'Finds relevant buildings and highlights them on Google Maps',
+                meta: null
+            },
 
+            {
+                icon: 'placeholder',
+                title: 'Open day plans',
+                subtitle: 'Provides details relevant to you regarding our open days',
+                meta: null
+                
+            },
+        ];
+    });
+
+    
+  </script>
+
+<div flex>
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <span>University of Portsmouth</span>
+        </div>
+    </md-toolbar>
+</div>
+
+<md-content>
+    <md-list flex>
+        <md-subheader class="md-no-sticky">Open day visitor app</md-subheader>
+        <md-list-item class"md-2-line" ng-repeat="item in mainMenu" ng-click="null">
+            <div class="md-list-item-text" layout="column">
+                <h3>{{ item.title }}</h3>
+                <h4>{{ item.subtitle }}</h4>
+            </div>
+        </md-list-item>
+    </md-list>
 </md-content>
 </body>
 </html>
