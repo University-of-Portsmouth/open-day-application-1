@@ -1,68 +1,54 @@
 <html lang="en" >
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css"></link>  
-  
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-</head>
-<body ng-app="UoPVisitorApp" ng-controller="mainController" ng-cloak layout-gt-sm="column" layout="column">
-  
-  <script type="text/javascript">    
-    angular.module('UoPVisitorApp', ['ngMaterial'])
-    .config(function($mdIconProvider) {
-        $mdIconProvider
-            .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24);
-    })
-    .controller('mainController', function ($scope) { 
-        $scope.mainMenu = [
-            {
-                icon: 'placeholder',
-                title: 'Building locator',
-                subtitle: 'Finds relevant buildings and highlights them on Google Maps',
-                meta: null
-            },
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css"></link>  
 
-            {
-                icon: 'placeholder',
-                title: 'Open day plans',
-                subtitle: 'Provides details relevant to you regarding our open days',
-                meta: null
-                
-            },
-        ];
-    });
+        <!-- Angular Material requires Angular.js Libraries -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-    
-  </script>
+        <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.3.2/svg-morpheus.js"></script>
 
-<div flex>
-    <md-toolbar class="md-hue-2">
-        <div class="md-toolbar-tools">
-            <span>University of Portsmouth</span>
-        </div>
-    </md-toolbar>
-</div>
+        <!-- Google Maps stuff -->
+        <script src="lib/ng-map.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js"></script>
 
-<md-content>
-    <md-list flex>
-        <md-subheader class="md-no-sticky">Open day visitor app</md-subheader>
-        <md-list-item class"md-2-line" ng-repeat="item in mainMenu" ng-click="null">
-            <div class="md-list-item-text" layout="column">
-                <h3>{{ item.title }}</h3>
-                <h4>{{ item.subtitle }}</h4>
+        <script src="app.js"></script>
+    </head>
+    <body>
+
+        <div ng-app="UoPVisitorApp" ng-controller="mainController" ng-cloak layout-gt-sm="column" layout="column">
+            
+            <div flex>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <md-button class="md-icon-button" aria-label="Settings">
+                            <ng-md-icon icon="menu"></ng-md-icon>
+                        </md-button>
+                        <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
+                    </div>
+                </md-toolbar>
             </div>
-        </md-list-item>
-    </md-list>
-</md-content>
-</body>
+
+            <md-content>
+                <md-list flex>
+                    <md-list-item class"md-2-line" ng-repeat="item in mainMenu" ng-click="null">
+                        <div class="md-list-item-text" layout="column">
+                            <span class="subHead">{{ item.title }}</span>
+                            <span class="subSubHead">{{ item.subtitle }}</span>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+
+    </body>
 </html>

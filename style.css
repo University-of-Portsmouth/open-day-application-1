@@ -1,3 +1,31 @@
+/*
+ * Turquoise: 65, 192, 190
+ * Purple: 68, 37, 128
+ */
+
+@font-face {
+    font-family: Gibson;
+    src: url(fonts/Gibson-Light-webfont.woff);
+}
+
+@font-face {
+    font-family: Gibson;
+    src: url(fonts/Gibson-Bold-webfont.woff);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Helvetica Neue;
+    src: url(fonts/HelveticaNeueLTStd-Lt.otf);
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: Helvetica Neue;
+    src: url(fonts/Helvetica-Neue-LT-Std-85-Heavy_22545.ttf);
+    font-weight: bold;
+}
+
 md-divider {
     margin-top: 10px;
     margin-bottom: 0;
@@ -12,4 +40,68 @@ h4 {
     margin-top: 0;
     font-weight: normal;
     line-height: 94%;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.mainHeader {
+     font-family: "Gibson";
+     font-weight: bold;
+     font-size: 16px;
+     text-align: center;
+     text-transform: uppercase;
+}
+
+.introText {
+    font-family: "Gibson";
+    font-size: 12px;
+    color: rgb(68, 37, 128);
+}
+
+.bodyText {
+    font-family: "Helvetica Neue";
+    font-size: 9px;
+    font-weight: 100; 
+}
+
+.subHead {
+    font-family: "Gibson";
+    font-weight: bold;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.subSubHead {
+    font-family: "Helvetica Neue";
+    font-size: 9px;
+    font-weight: bold;
+}
+.purple {
+    color: rgb(68, 37, 128);
+}
+
+.turquoise {
+    color: rgb(65, 192, 190);
+}
+
+.purpleBG1 {
+    background-color: rgb(68, 37, 128);
+}
+
+.purpleBG2 {
+    background-color: rgba(68, 37, 128, 0.5);
+}
+
+.purpleBG3 {
+    background-color: rgba(68, 37, 128, 0.25);
+}
+
+.turquoiseBG1 {
+    background-color: rgb(65, 192, 190);
+}
+
+.turquoiseBG2 {
+    background-color: rgba(65, 192, 190, 0.5);
 }
