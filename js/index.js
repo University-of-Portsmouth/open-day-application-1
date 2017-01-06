@@ -1,12 +1,18 @@
 var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute']);
 
-app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider) {
+app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
+
     $routeProvider
+    .when('/', {
+        templateUrl: 'main.html',
+        controller: 'mainController'
+    })
+    
 });
 
 
-app.controller('mainController', function ($scope) { 
+app.controller('mainController', function ($scope, $mdDialog, $route) { 
     $scope.mainMenu = [
         {
             icon: 'business',
@@ -24,13 +30,20 @@ app.controller('mainController', function ($scope) {
         {
             icon: 'pets',
             title: 'Placeholder',
-            subtitle: 'Meaningless text',
+            subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
 
         {
             icon: 'accessibility',
-            title: 'Another placeholder',
-            subtitle: 'More meaningless text',
+            title: 'Placeholder',
+            subtitle: 'Fusce lobortis in diam vitae ultricies',
         },
     ];
+
+    var originatorEv;
+
+    this.openMainMenu = function($mdOpenMainMenu, ev) {
+        originatorEv = ev;
+        $mdOpenMainMenu(ev);
+    };
 });

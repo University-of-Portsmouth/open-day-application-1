@@ -1,19 +1,18 @@
-<html lang="en" >
+<html lang="en">
     <head>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Angular Material style sheet -->
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
         <link rel="stylesheet" type="text/css" href="style.css"></link>  
 
-        <!-- Angular Material requires Angular.js Libraries -->
+        <!-- AngularJS/Material etc. -->
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
 
-        <!-- Angular Material Library -->
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.3.2/svg-morpheus.js"></script>
@@ -22,36 +21,58 @@
         <script src="lib/ng-map.min.js"></script>
         <script src="http://maps.google.com/maps/api/js"></script>
 
-        <script src="app.js"></script>
+        <!-- Per-page JavaScript -->
+        <script src="js/index.js"></script>
+        <script src="js/settings.js"></script>
+
     </head>
-    <body>
 
-        <div ng-app="UoPVisitorApp" ng-controller="mainController" ng-cloak layout-gt-sm="column" layout="column">
-            
-            <div flex>
-                <md-toolbar>
-                    <div class="md-toolbar-tools">
-                        <md-button class="md-icon-button" aria-label="Settings">
-                            <ng-md-icon icon="menu" style="fill: rgb(68, 37, 128)"></ng-md-icon>
+    <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column">
+
+        <md-toolbar class="md-medium-tall" style="text-align: center;">
+            <md-toolbar-row>
+                <span flex layout="row" class="md-toolbar-tools">
+                    <md-menu>
+                        <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.openMainMenu($mdOpenMenu, $event)">
+                            <ng-md-icon md-menu-origin icon="menu"  size="30"></ng-md-icon>
                         </md-button>
-                        <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
-                    </div>
-                </md-toolbar>
-            </div>
+                        <md-menu-content width="2">
+                            <md-menu-item>
+                                <md-button class="menuButton" ng-click="showSettings($event, 'settings.html')">
+                                    <ng-md-icon icon="settings" style="margin-top: "></ng-md-icon>
+                                    Settings
+                                </md-button>
+                            </md-menu-item>
+                            <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
+                            <md-menu-item>
+                                <md-button class="menuButton">
+                                    <ng-md-icon icon="login"></ng-md-icon>
+                                    Login
+                                </md-button>
+                            </md-menu-item>
+                            <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
+                            <md-menu-item>
+                                <md-button class="menuButton">
+                                    <ng-md-icon icon="help_outline"></ng-md-icon>
+                                    Help
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
 
-            <md-content>
-                <md-list flex>
-                    <md-list-item class="md-2-line" ng-repeat="item in mainMenu" ng-click="null">
-                        <ng-md-icon icon="{{item.icon}}" style="margin-right: 8px; fill: rgb(68, 37, 128)"></ng-md-icon>
-                        <div class="md-list-item-text" layout="column">
-                            <span class="subHead turquoise">{{ item.title }}</span>
-                            <span class="subSubHead">{{ item.subtitle }}</span>
-                        </div>
-                        <md-divider md-inset ng-if="!$last"></md-divider>
-                    </md-list-item>
-                </md-list>
-            </md-content>
-        </div>
+                    <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
+                </md-toolbar-row>
+            </span>
+            <md-toolbar-row>
+
+                <!--<md-button class="md-icon-button" aria-label="Back">
+                    <ng-md-icon md-menu-origin icon="arrow_back" ></ng-md-icon>
+                </md-button>-->
+                <span class="secondHeader turquoiseBG1">Open Day Visitor App</span>
+            </md-toolbar-row>
+        </md-toolbar>
+
+        <div ng-view layout-fill role="main"></div>
 
     </body>
 </html>
