@@ -8,6 +8,10 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
         templateUrl: 'main.html',
         controller: 'mainController'
     })
+    .when('/navigator', {
+        templateUrl: 'navigator/navigator.html',
+        controller: 'navController'
+    })
     
 });
 
@@ -16,14 +20,16 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
     $scope.mainMenu = [
         {
             icon: 'business',
-            title: 'Building locator',
+            title: 'Navigator',
             subtitle: 'Finds relevant buildings and highlights them on Google Maps',
+            destination: '#/navigator',
         },
 
         {
             icon: 'school',
             title: 'Open day plans',
             subtitle: 'Provides details relevant to you regarding our open days',
+            destination: '',
 
         },
 
@@ -31,12 +37,14 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
             icon: 'pets',
             title: 'Placeholder',
             subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            destination: '',
         },
 
         {
             icon: 'accessibility',
             title: 'Placeholder',
             subtitle: 'Fusce lobortis in diam vitae ultricies',
+            destination: '',
         },
     ];
 

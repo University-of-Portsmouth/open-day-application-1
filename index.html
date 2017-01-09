@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="style.css"></link>  
 
         <!-- AngularJS/Material etc. -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
@@ -18,20 +18,22 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.3.2/svg-morpheus.js"></script>
 
         <!-- Google Maps stuff -->
+        <script src="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places"></script>
         <script src="lib/ng-map.min.js"></script>
-        <script src="http://maps.google.com/maps/api/js"></script>
-
         <!-- Per-page JavaScript -->
+        <script src="js/directive.js"></script>
         <script src="js/index.js"></script>
         <script src="js/settings.js"></script>
+        <script src="js/navigator.js"></script>
 
     </head>
 
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column">
 
+        <!-- Top toolbar -->
         <md-toolbar class="md-medium-tall" style="text-align: center;">
             <md-toolbar-row>
-                <span flex layout="row" class="md-toolbar-tools">
+                <span flex layout="row" layout-align="center center">
                     <md-menu>
                         <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.openMainMenu($mdOpenMenu, $event)">
                             <ng-md-icon md-menu-origin icon="menu"  size="30"></ng-md-icon>
@@ -39,7 +41,7 @@
                         <md-menu-content width="2">
                             <md-menu-item>
                                 <md-button class="menuButton" ng-click="showSettings($event, 'settings.html')">
-                                    <ng-md-icon icon="settings" style="margin-top: "></ng-md-icon>
+                                    <ng-md-icon icon="settings"></ng-md-icon>
                                     Settings
                                 </md-button>
                             </md-menu-item>
@@ -60,19 +62,25 @@
                         </md-menu-content>
                     </md-menu>
 
-                    <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
-                </md-toolbar-row>
-            </span>
-            <md-toolbar-row>
+                    <span id="banner" class="mainHeader purple nowrap" style="margin-left: 5vw !important">University of Portsmouth</span>
+                </span>
+            </md-toolbar-row>
 
-                <!--<md-button class="md-icon-button" aria-label="Back">
-                    <ng-md-icon md-menu-origin icon="arrow_back" ></ng-md-icon>
-                </md-button>-->
-                <span class="secondHeader turquoiseBG1">Open Day Visitor App</span>
+            <md-toolbar-row>
+                <div layout="row" layout-align="center center">
+                    <md-button class="md-icon-button" aria-label="Back">
+                        <ng-md-icon md-menu-origin icon="arrow_back"></ng-md-icon>
+                    </md-button>
+                    <span class="secondHeader turquoiseBG1">Open Day Visitor App</span>
+                </div>
             </md-toolbar-row>
         </md-toolbar>
 
-        <div ng-view layout-fill role="main"></div>
+        <!-- Main view -->
+        <div ng-view role="main"></div>
 
+
+        <!-- Footer - animated banner -->
+        <div class="footer purpleBG1">Sticky footer for ads</div>
     </body>
 </html>
