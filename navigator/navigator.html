@@ -14,7 +14,7 @@
     <div flex>
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm>
             <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.realName}}">{{ building.name }} ({{ building.code }})
+                <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}">{{ building.name }} ({{ building.code }})
                 </md-option>
             </md-select>
         </md-input-container>
@@ -22,7 +22,7 @@
             Walking
         </md-checkbox>
     </div>
-    <div id="directions-panel" style="width: 100%; float:left; height: 20%; overflow: auto; padding: 0px 5px">
+    <div flex id="directions-panel" style="width: 100%; float:left; height: 20%; overflow: auto; padding: 0px 5px">
     </div>
 </md-content>
 
