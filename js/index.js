@@ -1,4 +1,4 @@
-var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute']);
+var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate']);
 
 app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
@@ -19,7 +19,7 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
 app.controller('mainController', function ($scope, $mdDialog, $route) { 
     $scope.mainMenu = [
         {
-            icon: 'business',
+            icon: 'near_me',
             title: 'Navigator',
             subtitle: 'Finds relevant buildings and highlights them on Google Maps',
             destination: '#/navigator',
@@ -29,7 +29,7 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
             icon: 'school',
             title: 'Open day plans',
             subtitle: 'Provides details relevant to you regarding our open days',
-            destination: '',
+            destination: '#/plans',
 
         },
 

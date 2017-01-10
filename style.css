@@ -176,3 +176,43 @@ md-icon svg {
 .turquoiseBG2 {
     background-color: rgba(65, 192, 190, 0.5);
 }
+
+.slideLeft {
+    -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -ms-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -o-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* easeOutQuad */
+    -webkit-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -ms-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -o-transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* easeOutQuad */
+}
+
+.slideLeft.ng-enter {
+    opacity: 0;
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+}
+
+.slideLeft.ng-enter-active {
+    opacity: 1;
+}
+
+.slideLeft.ng-leave {
+    opacity: 1;
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+}
+
+.slideLeft.ng-leave-active {
+    opacity: 0;
+}
+
+.slideLeft.ng-hide-add {
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+}

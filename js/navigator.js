@@ -1,28 +1,11 @@
-app.controller('navController', ['$scope', function($scope) {
+app.controller('navController', ['$scope', '$http', function($scope, $http) {
  
     $scope.destination = '';
+    $scope.walking = true;
 
-    
+    $scope.travelMode = 'WALKING';
 
-    $scope.buildings = [
-        {
-            name: "Lion Gate Building",
-            realName: "Lion Gate Building, Portsmouth",
-            code: "LG",
-        },
-
-        {
-            name: "Buckingham Building",
-            realName: "Buckingham Building, Portsmouth",
-            code: "BK",
-        },
-        {
-            name: "St. Andrews Court",
-            realName: "St Andrews Court, Saint Michael's Road, Portsmouth",
-            code: "SAC",
-        },
-            
-    ];
+    $scope.buildings = [];
 
     $scope.clearDestination = function() {
         $scope.destination = '';
@@ -31,5 +14,19 @@ app.controller('navController', ['$scope', function($scope) {
     $scope.setDestination = function(dest) {
         $scope.destination = dest;
     };
-    
+
+    $scope.setTravelMode = function() {
+        if ($scope.walking) {
+            $scope.travelMode = 'WALKING';
+        } else {
+            $scope.travelMode = 'DRIVING';
+        }
+    };
+
+    $http.get("navigator/navigator.php")
+        .then(function (response) {
+            $scope.buildings = response.data.records; console.log($scope.buildings);
+
+        });
+
 }]);
