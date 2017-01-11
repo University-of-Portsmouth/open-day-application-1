@@ -1,5 +1,5 @@
 app.controller('parkingController', ['$scope', '$http', function($scope, $http) {
- 
+
     $scope.destination = '';
     $scope.highlightAll = false;
 
@@ -12,40 +12,56 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
         }
     };
 
+    $scope.highlightAll = function() {
+
+
+    };
+
+    $scope.getNearestCarPark = function() {
+
+        var pos;
+        var currNearest = -1;
+        var nearest;
+
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+
+                pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                var promise = new Promise(function(resolve, reject) {
+
+                    for (i in $scope.carParks) {
+
+                        var tempPos = new google.maps.LatLng($scope.carParks[i].location.replace(' ', '').split(',')[0], $scope.carParks[i].location.replace(' ', '').split(',')[1]);
+
+                        if (google.maps.geometry.spherical.computeDistanceBetween(pos, tempPos) < currNearest || currNearest == -1) {
+                            currNearest = google.maps.geometry.spherical.computeDistanceBetween(pos, tempPos);
+                            nearest = $scope.carParks[i];
+                        }
+                    }
+
+                    if (nearest !== 'undefined' && i == $scope.carParks.length - 1) {
+                        resolve("Success");
+                    } else {
+                        reject(Error("Failure"));
+                    }
+
+                });
+
+                promise.then(function() {
+                    console.log(nearest);
+                    $scope.destination = nearest.location;
+                });
+            });
+        }
+    };
+
     $http.get("parking/parking.php")
         .then(function (response) {
             $scope.carParks = response.data.records;
-            
-            var firstLoc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            var secondLoc = new google.maps.LatLng();
+            $scope.getNearestCarPark();
 
-            console.log(google.maps.geometry.spherical.computeDistanceBetween(firstLoc, secondLoc));
-            //$scope.getNearestCarPark();
         });
 
-    /*
-     * Gross
-     *
-    $scope.getNearestCarPark = function() {
-        var i = 0;
-        var nearest;
-        var length = 0;
-
-        for (carPark in $scope.carParks) {
-            
-                console.log("pop");
-            $scope.destination = carPark[i].location;
-
-            if (length == 0 || document.map.directionsRenderers[0].directions.routes[0].overview_path.length < length) {
-                length = document.map.directionsRenderers[0].directions.routes[0].overview_path.length;
-                nearest = carPark;
-            }
-
-            i++;
-        }
-
-        console.log(nearest);
-        $scope.nearestCarPark = $scope.getNearestCarPark();
-    };
-*/
 }]);
