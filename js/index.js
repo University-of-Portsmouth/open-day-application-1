@@ -12,7 +12,14 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
         templateUrl: 'navigator/navigator.html',
         controller: 'navController'
     })
-    
+    .when('/parking', {
+        templateUrl: 'parking/parking.html',
+        controller: 'parkingController'
+    })
+    .when('/feedback', {
+        templateUrl: 'feedback/feedback.html',
+        controller: 'feedbackController'
+    })
 });
 
 
@@ -27,24 +34,31 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
 
         {
             icon: 'school',
-            title: 'Open day plans',
-            subtitle: 'Provides details relevant to you regarding our open days',
+            title: 'Applicant open day plans',
+            subtitle: 'Provides details relevant to you regarding our applicant open days',
             destination: '#/plans',
 
         },
 
         {
-            icon: 'pets',
-            title: 'Placeholder',
-            subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            destination: '',
+            icon: 'directions_car',
+            title: 'Car park locator',
+            subtitle: 'Finds nearby car parks',
+            destination: '#/parking',
         },
 
         {
             icon: 'accessibility',
-            title: 'Placeholder',
-            subtitle: 'Fusce lobortis in diam vitae ultricies',
+            title: 'Brief message from the VC',
+            subtitle: 'something something',
             destination: '',
+        },
+
+        {
+            icon: '',
+            title: 'Feedback',
+            subtitle: 'Let us know what you thought of our open day',
+            destination: '#/feedback',
         },
     ];
 
