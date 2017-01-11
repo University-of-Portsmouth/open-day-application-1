@@ -4,6 +4,7 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
     $scope.highlightAll = false;
 
     $scope.carParks = [];
+
     $scope.setTravelMode = function() {
         if ($scope.highlightAll) {
             $scope.destination = 'car parks';
@@ -12,10 +13,6 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
         }
     };
 
-    $scope.highlightAll = function() {
-
-
-    };
 
     $scope.getNearestCarPark = function() {
 
@@ -42,9 +39,9 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
                     }
 
                     if (nearest !== 'undefined' && i == $scope.carParks.length - 1) {
-                        resolve("Success");
+                        resolve("The nearest car park was found");
                     } else {
-                        reject(Error("Failure"));
+                        reject(Error("Something went wrong, the nearest car park was not found"));
                     }
 
                 });
@@ -61,7 +58,6 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
         .then(function (response) {
             $scope.carParks = response.data.records;
             $scope.getNearestCarPark();
-
         });
 
 }]);

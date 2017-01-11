@@ -31,12 +31,12 @@
 
     </head>
 
-    <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column">
+    <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout="column" layout-fill>
 
         <!-- Top toolbar -->
         <md-toolbar class="md-medium-tall" style="text-align: center;">
             <md-toolbar-row>
-                <span flex layout="row" layout-align="center center">
+                <span layout="row" layout-align="center center">
                     <md-menu>
                         <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.openMainMenu($mdOpenMenu, $event)">
                             <ng-md-icon md-menu-origin icon="menu"  size="30"></ng-md-icon>

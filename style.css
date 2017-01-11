@@ -123,6 +123,8 @@ md-icon svg {
     align: left;
 }
 
+/* UoP text */
+
 .introText {
     font-family: "Gibson";
     font-size: 12pt;
@@ -146,8 +148,10 @@ md-icon svg {
 .subSubHead {
     font-family: "Helvetica Neue Bold";
     font-size: 4vw;
-    line-height: 4vw;
+    line-height: 4.75vw;
 }
+
+/* UoP colours */
 
 .purple {
     color: rgb(68, 37, 128);
@@ -176,6 +180,9 @@ md-icon svg {
 .turquoiseBG2 {
     background-color: rgba(65, 192, 190, 0.5);
 }
+
+
+/* Animation */
 
 .slideLeft {
     -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -215,4 +222,10 @@ md-icon svg {
 .slideLeft.ng-hide-add {
     transition-duration: 250ms;
     -webkit-transition-duration: 250ms;
+}
+
+/* Misc. */
+
+.carParkMarker {
+    
 }
