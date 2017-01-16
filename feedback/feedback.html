@@ -4,7 +4,7 @@
 
     <div flex>
         <label class="subSubHead purple">1. On which Applicant Open Day did you attend?</label>
-        <md-select ng-model="feedbackq1" class="bodyText">
+        <md-select ng-model="q1" class="bodyText">
             <md-option class="menuButton turquoiseBG1" ng-repeat="date in feedbackq1" value="{{date}}">
                 {{date}}
             </md-option>
@@ -22,7 +22,7 @@
         </md-radio-group>
 
         <label class="subSubHead purple">Comments: </label>
-        <textarea ng-model="q2q"></textarea>
+        <textarea ng-model="q2c"></textarea>
     </div>
     
     <div flex>
@@ -35,7 +35,7 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea ng-model="q3q"></textarea>
+        <textarea ng-model="q3c"></textarea>
     </div>
 
     <div flex>
@@ -59,7 +59,7 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea ng-model="q5q"></textarea>
+        <textarea ng-model="q5c"></textarea>
     </div>
 
     <div flex>
@@ -74,7 +74,7 @@
         <textarea ng-model="q7"></textarea>
     </div>
 
-    <md-button class="menuButton turquoiseBG1">Submit</md-button>
-    <md-button class="menuButton turquoiseBG1">Cancel</md-button>
+    <md-button class="menuButton turquoiseBG1" ng-click="submitFeedback()">Submit</md-button>
+    <md-button class="menuButton turquoiseBG1" ng-href="#/">Cancel</md-button>
 
 </md-content>
