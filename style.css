@@ -24,6 +24,12 @@
     src: url(fonts/Helvetica-Neue-LT-Std-85-Heavy_22545.ttf);
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
 md-divider {
     color: rgba(68, 37, 128, 0.22);
 }
@@ -112,11 +118,17 @@ md-icon svg {
     align: middle;
 }
 
-.footer {
+footer {
     position: absolute;
+    left: 0;
     bottom: 0;
     width: 100%;
     height: 25vw;
+    overflow-y: auto;
+}
+
+.footer2 {
+    width: 100%;
 }
 
 .backButton {
@@ -133,7 +145,7 @@ md-icon svg {
 
 .bodyText {
     font-family: "Helvetica Neue";
-    font-size: 3vw;
+    font-size: 4.88vw;
     font-weight: 100; 
 }
 
@@ -148,7 +160,7 @@ md-icon svg {
 .subSubHead {
     font-family: "Helvetica Neue Bold";
     font-size: 4vw;
-    line-height: 4.75vw;
+    line-height: 4.5vw;
 }
 
 /* UoP colours */
