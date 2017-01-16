@@ -3,108 +3,78 @@
 <md-content layout-padding>    
 
     <div flex>
-        <label class="subHead purple">1. On which Applicant Open Day did you attend?</label>
-        <md-select ng-model="feedbackq1">
-            <md-option ng-repeat="date in feedbackq1" value="{{date}}">
+        <label class="subSubHead purple">1. On which Applicant Open Day did you attend?</label>
+        <md-select ng-model="feedbackq1" class="bodyText">
+            <md-option class="menuButton turquoiseBG1" ng-repeat="date in feedbackq1" value="{{date}}">
                 {{date}}
             </md-option>
+            
         </md-select>
     </div>
 
     <div flex>
-        <p class="subHead">2. How useful did you find the morning part of the Applicant Open Day? (Accommodation, campus and city tours given by our Student Marketing Assistants in purple)</p>
-        <md-radio-group>
-            <md-radio-button class="bodyText" ng-model="feedbackq2.veryUseful">
-                Very useful
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.useful">
-                Useful
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.notUseful">
-                Not useful
+        <p class="subSubHead purple">2. How useful did you find the morning part of the Applicant Open Day? (Accommodation, campus and city tours given by our Student Marketing Assistants in purple)</p>
+        <md-radio-group ng-model="q2">
+            <md-radio-button class="bodyText" ng-repeat="a in feedbackq2"
+                ng-value="a.value">
+                {{ a.label }} <br/>
             </md-radio-button>
         </md-radio-group>
 
-        <label class="subSubHead">Comments: </label>
-        <div flex></div>
-        <textarea></textarea>
+        <label class="subSubHead purple">Comments: </label>
+        <textarea ng-model="q2q"></textarea>
     </div>
     
     <div flex>
-        <p class="subHead">3. How useful did you find the afternoon part of the Applicant Open Day? (With your department)</p>
-        <md-radio-group>
-            <md-radio-button class="bodyText" ng-model="feedbackq2.veryUseful">
-                Very useful
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.useful">
-                Useful
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.notUseful">
-                Not useful
+        <p class="subSubHead purple">3. How useful did you find the afternoon part of the Applicant Open Day? (With your department)</p>
+        <md-radio-group ng-model="q3">
+            <md-radio-button class="bodyText" ng-repeat="a in feedbackq3"
+                ng-value="a.value">
+                {{ a.label }} <br/>
             </md-radio-button>
         </md-radio-group>
         
-        <label>Comments: </label>
-        <div flex></div>
-        <textarea></textarea>
+        <label class="subSubHead purple">Comments: </label>
+        <textarea ng-model="q3q"></textarea>
     </div>
 
     <div flex>
-        <p class="subHead">4. Are we your first or insurance choice?</p>
-        <md-radio-group>
-            <md-radio-button class="bodyText" ng-model="feedbackq2.veryUseful">
-                First
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.useful">
-                Insurance
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.notUseful">
-                One of five universities
+        <p class="subSubHead purple">4. Are we your first or insurance choice?</p>
+        <md-radio-group ng-model="q4">
+            <md-radio-button class="bodyText" ng-repeat="a in feedbackq4"
+                ng-value="a.value">
+                {{ a.label }} <br/>
             </md-radio-button>
         </md-radio-group>
     </div>
 
 
     <div flex>
-        <p class="subHead">5. Based on your experience of the Applicant Open Day, which of the following applies?</p>
-        <md-radio-group>
-            <md-radio-button class="bodyText" ng-model="feedbackq2.veryUseful">
-                I'm more likely to enrol
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.useful">
-                I'm still undecided
-            </md-radio-button>
-
-            <md-radio-button class="bodyText" ng-model="feedbackq2.notUseful">
-                I'm less likely to enrol
+        <p class="subSubHead purple">5. Based on your experience of the Applicant Open Day, which of the following applies?</p>
+        <md-radio-group ng-model="q5">
+            <md-radio-button class="bodyText" ng-repeat="a in feedbackq5"
+                ng-value="a.value">
+                {{ a.label }} <br/>
             </md-radio-button>
         </md-radio-group>
         
-        <label>Comments: </label>
-        <div flex></div>
-        <textarea></textarea>
+        <label class="subSubHead purple">Comments: </label>
+        <textarea ng-model="q5q"></textarea>
     </div>
 
     <div flex>
-        <p class="subHead">6. How could we improve the Applicant Open Day?</p>
-        <div flex></div>
-        <textarea></textarea>
+        <p class="subSubHead purple">6. How could we improve the Applicant Open Day?</p>
+        </br>
+        <textarea ng-model="q6"></textarea>
     </div>
 
     <div flex>
-        <p class="subHead">7. What did you think of the open day visitor app? How could we improve it?</p>
-        <div flex></div>
-        <textarea></textarea>
+        <p class="subSubHead purple">7. What did you think of the open day visitor app? How could we improve it?</p>
+        </br>
+        <textarea ng-model="q7"></textarea>
     </div>
 
-    <md-button>Submit</md-button>
-    <md-button>Cancel</md-button>
+    <md-button class="menuButton turquoiseBG1">Submit</md-button>
+    <md-button class="menuButton turquoiseBG1">Cancel</md-button>
 
 </md-content>

@@ -145,7 +145,7 @@ footer {
 
 .bodyText {
     font-family: "Helvetica Neue";
-    font-size: 4.88vw;
+    font-size: 4.25vw;
     font-weight: 100; 
 }
 
@@ -240,4 +240,12 @@ footer {
 
 .carParkMarker {
     
+}
+
+textarea {
+
+}
+
+.md-on {
+    background-color: black !important;
 }
