@@ -3,6 +3,7 @@
 <md-content layout-padding>    
 
     <div flex>
+        <form name="feedbackForm">
         <label class="subSubHead purple">1. On which Applicant Open Day did you attend?</label>
         <md-select ng-model="q1" class="bodyText">
             <md-option class="menuButton turquoiseBG1" ng-repeat="date in feedbackq1" value="{{date}}">
@@ -14,7 +15,7 @@
 
     <div flex>
         <p class="subSubHead purple">2. How useful did you find the morning part of the Applicant Open Day? (Accommodation, campus and city tours given by our Student Marketing Assistants in purple)</p>
-        <md-radio-group ng-model="q2">
+        <md-radio-group ng-model="q2" required>
             <md-radio-button class="bodyText" ng-repeat="a in feedbackq2"
                 ng-value="a.value">
                 {{ a.label }} <br/>
@@ -22,12 +23,12 @@
         </md-radio-group>
 
         <label class="subSubHead purple">Comments: </label>
-        <textarea class="feedbackTextarea" ng-model="q2c" ng-maxlength="500" style="margin-left: 1px"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q2c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
     </div>
     
     <div flex>
         <p class="subSubHead purple">3. How useful did you find the afternoon part of the Applicant Open Day? (With your department)</p>
-        <md-radio-group ng-model="q3">
+        <md-radio-group ng-model="q3" required>
             <md-radio-button class="bodyText" ng-repeat="a in feedbackq3"
                 ng-value="a.value">
                 {{ a.label }} <br/>
@@ -35,12 +36,12 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea class="feedbackTextarea" ng-model="q3c" ng-maxlength="500" style="margin-left: 1px"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q3c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
     </div>
 
     <div flex>
         <p class="subSubHead purple">4. Are we your first or insurance choice?</p>
-        <md-radio-group ng-model="q4">
+        <md-radio-group ng-model="q4" required>
             <md-radio-button class="bodyText" ng-repeat="a in feedbackq4"
                 ng-value="a.value">
                 {{ a.label }} <br/>
@@ -51,7 +52,7 @@
 
     <div flex>
         <p class="subSubHead purple">5. Based on your experience of the Applicant Open Day, which of the following applies?</p>
-        <md-radio-group ng-model="q5">
+        <md-radio-group ng-model="q5" required>
             <md-radio-button class="bodyText" ng-repeat="a in feedbackq5"
                 ng-value="a.value">
                 {{ a.label }} <br/>
@@ -59,18 +60,18 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea class="feedbackTextarea" ng-model="q5c" ng-maxlength="500" style="margin-left: 1px"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q5c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
     </div>
 
     <div flex>
         <p class="subSubHead purple">6. How could we improve the Applicant Open Day?</p>
         </br>
-        <textarea class="feedbackTextarea" ng-model="q6" ng-maxlength="500"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q6" ng-maxlength="500" required  ng-maxlength="500"></textarea>
     </div>
 
     <div flex>
         <p class="subSubHead purple">7. Was our open day visitor app useful? How could we improve it?</p>
-        <md-radio-group ng-model="q7">
+        <md-radio-group ng-model="q7" required>
             <md-radio-button class="bodyText" ng-repeat="a in feedbackq7"
                 ng-value="a.value">
                 {{ a.label }} <br/>
@@ -78,10 +79,11 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea class="feedbackTextarea" ng-model="q7c" ng-maxlength="500" style="margin-left: 1px"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q7c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
     </div>
 
     <md-button class="menuButton turquoiseBG1" ng-click="submitFeedback()">Submit</md-button>
     <md-button class="menuButton turquoiseBG1" ng-href="#/">Cancel</md-button>
 
+</form>
 </md-content>

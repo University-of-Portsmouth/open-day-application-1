@@ -1,4 +1,4 @@
-var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngMessages']);
 
 app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
