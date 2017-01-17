@@ -1,7 +1,7 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 
-$conn = new mysqli("localhost", "root", "", "visitorapp");
+require_once '../db_common.php';
+header("Access-Control-Allow-Origin: *");
 
 $result = $conn->query("SELECT name, location FROM carparks");
 

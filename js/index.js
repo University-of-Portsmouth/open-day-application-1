@@ -1,7 +1,8 @@
-var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate']);
+var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
+
 
     $routeProvider
     .when('/', {
@@ -20,10 +21,13 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
         templateUrl: 'feedback/feedback.html',
         controller: 'feedbackController'
     })
+
+
 });
 
 
-app.controller('mainController', function ($scope, $mdDialog, $route) { 
+app.controller('mainController', function ($scope, $mdDialog, $route) {
+
     $scope.mainMenu = [
         {
             icon: 'near_me',
@@ -51,7 +55,7 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
             icon: 'accessibility',
             title: 'Brief message from the VC',
             subtitle: 'something something',
-            destination: '',
+            destination: '#/vcmessage',
         },
 
         {

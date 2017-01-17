@@ -163,6 +163,13 @@ footer {
     line-height: 4.5vw;
 }
 
+.feedbackTextarea {
+    border-radius: 2vw;
+    resize: none;
+    font-family: "Helvetica Neue";
+    font-weight: 100;
+}
+
 /* UoP colours */
 
 .purple {
@@ -235,6 +242,17 @@ footer {
     transition-duration: 250ms;
     -webkit-transition-duration: 250ms;
 }
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+div#banner {
+
+}
+
 
 /* Misc. */
 

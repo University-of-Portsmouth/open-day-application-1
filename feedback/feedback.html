@@ -22,7 +22,7 @@
         </md-radio-group>
 
         <label class="subSubHead purple">Comments: </label>
-        <textarea ng-model="q2c"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q2c" ng-maxlength="500" style="margin-left: 1px"></textarea>
     </div>
     
     <div flex>
@@ -35,7 +35,7 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea ng-model="q3c"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q3c" ng-maxlength="500" style="margin-left: 1px"></textarea>
     </div>
 
     <div flex>
@@ -59,19 +59,26 @@
         </md-radio-group>
         
         <label class="subSubHead purple">Comments: </label>
-        <textarea ng-model="q5c"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q5c" ng-maxlength="500" style="margin-left: 1px"></textarea>
     </div>
 
     <div flex>
         <p class="subSubHead purple">6. How could we improve the Applicant Open Day?</p>
         </br>
-        <textarea ng-model="q6"></textarea>
+        <textarea class="feedbackTextarea" ng-model="q6" ng-maxlength="500"></textarea>
     </div>
 
     <div flex>
-        <p class="subSubHead purple">7. What did you think of the open day visitor app? How could we improve it?</p>
-        </br>
-        <textarea ng-model="q7"></textarea>
+        <p class="subSubHead purple">7. Was our open day visitor app useful? How could we improve it?</p>
+        <md-radio-group ng-model="q7">
+            <md-radio-button class="bodyText" ng-repeat="a in feedbackq7"
+                ng-value="a.value">
+                {{ a.label }} <br/>
+            </md-radio-button>
+        </md-radio-group>
+        
+        <label class="subSubHead purple">Comments: </label>
+        <textarea class="feedbackTextarea" ng-model="q7c" ng-maxlength="500" style="margin-left: 1px"></textarea>
     </div>
 
     <md-button class="menuButton turquoiseBG1" ng-click="submitFeedback()">Submit</md-button>

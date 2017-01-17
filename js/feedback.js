@@ -36,7 +36,14 @@ app.controller('feedbackController', ['$scope', '$http', function($scope, $http)
     $scope.q5c = '';
 
     $scope.q6 = '';
+    
+    $scope.feedbackq7 = [
+        { label: 'Very useful', value: 'Very useful' },
+        { label: 'Useful', value: 'Useful' },
+        { label: 'Not useful', value: 'Not useful' },
+        ];
     $scope.q7 = '';
+    $scope.q7c = '';
 
     $scope.submitFeedback = function() {
     
@@ -54,6 +61,7 @@ app.controller('feedbackController', ['$scope', '$http', function($scope, $http)
                 question5comment: $scope.q5c,
                 question6: $scope.q6,
                 question7: $scope.q7,
+                question7comment: $scope.q7c,
             },
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
@@ -68,6 +76,7 @@ app.controller('feedbackController', ['$scope', '$http', function($scope, $http)
         console.log($scope.q5c); 
         console.log($scope.q6); 
         console.log($scope.q7); 
+        console.log($scope.q7c); 
     };
 
 }]);
