@@ -1,6 +1,6 @@
 <?php
 
-require_once '../db_common.php';
+require_once 'db_common.php';
 header("Access-Control-Allow-Origin: *");
 
 $result = $conn->query("SELECT name, location FROM carparks");

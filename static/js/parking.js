@@ -54,7 +54,7 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
         }
     };
 
-    $http.get("parking/parking.php")
+    $http.get("../../parking.php")
         .then(function (response) {
             $scope.carParks = response.data.records;
             $scope.getNearestCarPark();

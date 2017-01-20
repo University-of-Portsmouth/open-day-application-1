@@ -22,10 +22,11 @@ app.controller('navController', ['$scope', '$http', function($scope, $http) {
             $scope.travelMode = 'DRIVING';
         }
     };
-
-    $http.get("navigator/navigator.php")
-        .then(function (response) {
-            $scope.buildings = response.data.records;
+    
+        $http.get("../../navigator.php")
+            .then(function (response) {
+                $scope.buildings = response.data.records;
+                console.log($scope.buildings);
         });
 
 }]);

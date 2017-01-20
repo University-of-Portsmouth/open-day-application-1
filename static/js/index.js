@@ -17,6 +17,10 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
         templateUrl: 'parking/parking.html',
         controller: 'parkingController'
     })
+    .when('/vcmessage', {
+        templateUrl: 'vcmessage/vcmessage.html',
+        controller: 'vcmessageController'
+    })
     .when('/feedback', {
         templateUrl: 'feedback/feedback.html',
         controller: 'feedbackController'
@@ -54,7 +58,7 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
         {
             icon: 'accessibility',
             title: 'Brief message from the VC',
-            subtitle: 'something something',
+            subtitle: 'A brief video message from the VC',
             destination: '#/vcmessage',
         },
 

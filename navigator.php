@@ -1,7 +1,5 @@
 <?php
-
-require_once '../db_common.php';
-header("Access-Control-Allow-Origin: *");
+require_once 'db_common.php';
 
 
 $result = $conn->query("SELECT name, code, location FROM buildings");

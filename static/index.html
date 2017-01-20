@@ -2,28 +2,27 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <link rel="stylesheet" href="lib/angular-material.min.css">
         <link rel="stylesheet" href="style.css" type="text/css"/>
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <!-- AngularJS/Material etc. -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-touch.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="lib/angular.js"></script>
+        <script src="lib/angular-touch.js"></script>
+        <script src="lib/angular-animate.min.js"></script>
+        <script src="lib/angular-aria.min.js"></script>
+        <script src="lib/angular-messages.min.js"></script>
+        <script src="lib/angular-route.min.js"></script>
 
-        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="lib/angular-material.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.3.2/svg-morpheus.js"></script>
         <script src="lib/ui-bootstrap-custom-2.4.0.min.js"></script>
 
         <!-- Google Maps stuff -->
-        <script src="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyA_M8pFurDyCMfwF4P_yCRJhlmu9cJmAUE&libraries=placeses,visualization,drawing,geometry,places"></script>
         <script src="lib/ng-map.min.js"></script>
 
         <!-- Per-page JavaScript -->
@@ -34,13 +33,14 @@
         <script src="js/parking.js"></script>
         <script src="js/feedback.js"></script>
         <script src="js/banner.js"></script>
+        <script src="js/vcmessage.js"></script>
     </head>
 
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill>
 
         <!-- Top toolbar -->
-        <div layout="column" flex>
-            <md-toolbar class="md-medium-tall" style="text-align: center;">
+        <div layout="column" layout-fill>
+            <md-toolbar>
                 <md-toolbar-row>
                     <span layout="row" layout-align="center center">
                         <md-menu>
@@ -99,7 +99,7 @@
                 <div flex ng-controller="bannerController" id="banner">
                     <div uib-carousel active="active" interval="interval">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin;auto;">
+                            <img ng-src="{{slide.image}}" style="margin:auto;">
                             <div class="carousel-caption">
                                 <p class="subSubHead turquoise">{{slide.text}}</p>
                         </div>

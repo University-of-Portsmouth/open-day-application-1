@@ -3,6 +3,9 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /(.+\.php)$
+  script: \1
+
 - url: /
   static_files: static/index.html
   upload: static/index.html
@@ -11,6 +14,7 @@ handlers:
   static_files: static/\1
   upload: static/(.*)
 
+
 skip_files:
 # App Engine default patterns.
 - ^(.*/)?#.*#$
@@ -18,3 +22,12 @@ skip_files:
 - ^(.*/)?.*\.py[co]$
 - ^(.*/)?.*/RCS/.*$
 - ^(.*/)?\..*$
+
+beta_settings:
+  cloud_sql_instances: uopvisitorapp:europe-west1:visitorapp
+
+env_variables:
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/uopvisitorapp:europe-west1:visitorapp;dbname=visitorapp
+  MYSQL_USER: root
+  MYSQL_PASSWORD: ''
+
