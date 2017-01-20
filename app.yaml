@@ -5,15 +5,17 @@ threadsafe: true
 handlers:
 - url: /(.+\.php)$
   script: \1
+  secure: always
 
 - url: /
   static_files: static/index.html
   upload: static/index.html
+  secure: always
 
 - url: /(.*)
   static_files: static/\1
   upload: static/(.*)
-
+  secure: always
 
 skip_files:
 # App Engine default patterns.

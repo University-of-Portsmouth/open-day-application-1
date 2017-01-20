@@ -41,7 +41,7 @@
 
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
-            <md-toolbar style="min-height: 15vw !important; max-height: 15vw !important">
+            <md-toolbar style="min-height: 15vw !important; max-height: 25vw !important">
                 <md-toolbar-row>
                     <span layout-align="center center">
                         <md-menu>
@@ -67,13 +67,6 @@
                                     <md-button class="menuButton">
                                         <ng-md-icon icon="help_outline"></ng-md-icon>
                                         Help
-                                    </md-button>
-                                </md-menu-item>
-                                <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
-                                <md-menu-item>
-                                    <md-button class="menuButton">
-                                        <ng-md-icon icon="feedback"></ng-md-icon>
-                                        Feedback analytics
                                     </md-button>
                                 </md-menu-item>
                             </md-menu-content>
@@ -103,11 +96,11 @@
             </md-content>
 
             <!-- Footer - carousel -->
-            <md-toolbar class="purpleBG1" style="min-height: 128px !important; max-height: 128px !important">
+            <md-toolbar class="purpleBG1 bannerCarousel" style="min-height: 128px !important; max-height: 128px !important">
                 <div flex ng-controller="bannerController" id="banner">
-                    <div uib-carousel active="active" interval="interval">
-                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div uib-carousel active="active" interval="interval" style="min-height: 128px !important; max-height: 128px !important">
+                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="min-height: 128px !important; max-height: 128px !important">
+                            <img ng-src="{{slide.image}}" style="margin:auto;" style="min-height: 128px !important; max-height: 128 !important; overflow-x: hidden">
                             <div class="carousel-caption">
                                 <p class="subSubHead turquoise">{{slide.text}}</p>
                             </div>

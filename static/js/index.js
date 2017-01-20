@@ -2,8 +2,7 @@ var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', '
 
 app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
-
-
+    
     $routeProvider
     .when('/', {
         templateUrl: 'main.html',
@@ -25,12 +24,6 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
         templateUrl: 'feedback/feedback.html',
         controller: 'feedbackController'
     })
-    .when('/feedbackanalytics', {
-        templateUrl: 'feedbackanalytics/feedbackanalytics.html',
-        controller: 'feedbackanalyticsController'
-    })
-
-
 });
 
 

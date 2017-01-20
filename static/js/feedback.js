@@ -49,7 +49,7 @@ app.controller('feedbackController', ['$scope', '$http', function($scope, $http)
     
         var request = $http({
             method: "post",
-            url: "feedback/feedback.php",
+            url: "feedback.php",
             data: {
                 question1: $scope.q1,
                 question2: $scope.q2,
