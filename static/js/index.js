@@ -25,6 +25,10 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
         templateUrl: 'feedback/feedback.html',
         controller: 'feedbackController'
     })
+    .when('/feedbackanalytics', {
+        templateUrl: 'feedbackanalytics/feedbackanalytics.html',
+        controller: 'feedbackanalyticsController'
+    })
 
 
 });

@@ -34,15 +34,16 @@
         <script src="js/feedback.js"></script>
         <script src="js/banner.js"></script>
         <script src="js/vcmessage.js"></script>
+        <script src="js/feedbackanalytics.js"></script>
     </head>
 
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill>
 
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
-            <md-toolbar>
+            <md-toolbar style="min-height: 15vw !important; max-height: 15vw !important">
                 <md-toolbar-row>
-                    <span layout="row" layout-align="center center">
+                    <span layout-align="center center">
                         <md-menu>
                             <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.openMainMenu($mdOpenMenu, $event)">
                                 <ng-md-icon md-menu-origin icon="menu"  size="30"></ng-md-icon>
@@ -68,17 +69,24 @@
                                         Help
                                     </md-button>
                                 </md-menu-item>
+                                <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
+                                <md-menu-item>
+                                    <md-button class="menuButton">
+                                        <ng-md-icon icon="feedback"></ng-md-icon>
+                                        Feedback analytics
+                                    </md-button>
+                                </md-menu-item>
                             </md-menu-content>
                         </md-menu>
 
-                        <span id="banner" class="mainHeader purple nowrap" style="margin-left: 5vw !important">University of Portsmouth</span>
+                        <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
                     </span>
                 </md-toolbar-row>
 
                 <md-toolbar-row>
                     <div layout="row" layout-align="center center">
                         <md-button class="md-icon-button" aria-label="Back" ng-href="#/">
-                            <ng-md-icon md-menu-origin icon="arrow_back"></ng-md-icon>
+                            <ng-md-icon md-menu-origin icon="arrow_back" flex></ng-md-icon>
                         </md-button>
                         <span class="secondHeader turquoiseBG1">Open Day Visitor App</span>
                     </div>
@@ -95,16 +103,16 @@
             </md-content>
 
             <!-- Footer - carousel -->
-            <md-toolbar class="md-tall purpleBG1">
+            <md-toolbar class="purpleBG1" style="min-height: 128px !important; max-height: 128px !important">
                 <div flex ng-controller="bannerController" id="banner">
                     <div uib-carousel active="active" interval="interval">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
                             <img ng-src="{{slide.image}}" style="margin:auto;">
                             <div class="carousel-caption">
                                 <p class="subSubHead turquoise">{{slide.text}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </md-toolbar>
 
             </div>
