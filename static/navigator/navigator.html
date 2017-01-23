@@ -13,7 +13,7 @@
     </div>
     <div flex>
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;">
-            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building">
+            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building" style="color: white !important">
                 <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}">{{ building.name }} ({{ building.code }})
                 </md-option>
             </md-select>

@@ -19,7 +19,7 @@
     </div>
     <div flex>
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm>
-            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a car park">
+            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a car park" style="color: white !important">
                 <md-option class="menuButton turquoiseBG1" ng-repeat="carpark in carParks" value="{{carpark.location}}">{{ carpark.name }}
                 </md-option>
             </md-select>

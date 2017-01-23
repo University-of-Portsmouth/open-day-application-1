@@ -180,11 +180,11 @@ footer {
 }
 
 .feedbackTextarea {
-    border-radius: 2vw;
+    border-radius: 1vw;
     resize: none;
     font-family: "Helvetica Neue";
     font-weight: 100;
-    font-size: 2vw;
+    font-size: 3.50vw;
 }
 
 /* UoP colours */
@@ -260,9 +260,6 @@ footer {
     -webkit-transition-duration: 250ms;
 }
 
-img {
-}
-
 div#banner {
 
     min-height: 128px !important;
@@ -274,10 +271,6 @@ div#banner {
 /* Misc. */
 
 .carParkMarker {
-    
-}
-
-textarea {
 
 }
 
@@ -286,9 +279,29 @@ textarea {
 }
 
 @media (orientation: landscape)
-    {
-        .bannerCarousel {
-            display: none;
-        }
+{
+    .bannerCarousel {
+        display: none;
     }
+}
 
+
+.ng-pristine {
+    color: rgb(68, 37, 128); 
+}
+
+.ng-valid {
+    color: rgb(68, 37, 128);
+}
+
+.ng-invalid.ng-dirty {
+    color: Red !important;
+}
+
+.ng-invalid.ng-dirty#q6 {
+    border: 1px solid red;
+}
+
+md-dialog {
+    background-color: white;
+}

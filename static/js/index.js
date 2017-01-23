@@ -2,28 +2,28 @@ var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', '
 
 app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
-    
+
     $routeProvider
-    .when('/', {
-        templateUrl: 'main.html',
-        controller: 'mainController'
-    })
-    .when('/navigator', {
-        templateUrl: 'navigator/navigator.html',
-        controller: 'navController'
-    })
-    .when('/parking', {
-        templateUrl: 'parking/parking.html',
-        controller: 'parkingController'
-    })
-    .when('/vcmessage', {
-        templateUrl: 'vcmessage/vcmessage.html',
-        controller: 'vcmessageController'
-    })
-    .when('/feedback', {
-        templateUrl: 'feedback/feedback.html',
-        controller: 'feedbackController'
-    })
+        .when('/', {
+            templateUrl: 'main.html',
+            controller: 'mainController'
+        })
+        .when('/navigator', {
+            templateUrl: 'navigator/navigator.html',
+            controller: 'navController'
+        })
+        .when('/parking', {
+            templateUrl: 'parking/parking.html',
+            controller: 'parkingController'
+        })
+        .when('/vcmessage', {
+            templateUrl: 'vcmessage/vcmessage.html',
+            controller: 'vcmessageController'
+        })
+        .when('/feedback', {
+            templateUrl: 'feedback/feedback.html',
+            controller: 'feedbackController'
+        })
 });
 
 
