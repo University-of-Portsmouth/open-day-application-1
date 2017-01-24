@@ -1,5 +1,8 @@
 # UoPVisitorApp
-An open day visitor web app for the University of Portsmouth.
+An open day visitor mobile web app for the University of Portsmouth.
+
+## Usage
+This app is best viewed on devices with screen widths under 1024px. Use the Google Chrome developer tools (right click, inspect) to emulate a mobile device.
 
 ## Releases
 The most current release can be found [here](https://uopvisitorapp.appspot.com).
