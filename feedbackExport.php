@@ -2,14 +2,32 @@
 
 require_once 'db_common.php';
 
-$result = mysqli_query($conn, 'SELECT * FROM feedback');
-$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$result = $conn->query('SELECT * FROM feedback');
 
-$filePath = fopen('gs://uopvisitorapp.appspot.com/test.csv', 'w');
+if (!$result) die('Something went wrong fetching data from the database.');
 
-foreach ($row as $val) {
-    fputcsv($filePath, $val);
+$num_fields = mysqli_num_fields($result);
+$headers = array();
+
+while ($fieldinfo = mysqli_fetch_field($result)) {
+    $headers[] = $fieldinfo->name;
 }
 
-fclose($filePath);
+$fp = fopen('php://output', 'w');
+
+if ($fp && $result) {
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename=uop_feedback_.csv');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    
+    fputcsv($fp, $headers, "\t");
+
+    while ($row = $result->fetch_array(MYSQLI_NUM)) {
+        fputcsv($fp, array_values($row), "\t");
+    }
+    die;
+}
+
+$conn->close();
 ?>
