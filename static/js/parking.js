@@ -47,7 +47,6 @@ app.controller('parkingController', ['$scope', '$http', function($scope, $http) 
                 });
 
                 promise.then(function() {
-                    console.log(nearest);
                     $scope.destination = nearest.location;
                 });
             });

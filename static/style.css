@@ -65,7 +65,7 @@ ng-md-icon {
 .menuButton {
     font-family: "Gibson" !important;
     font-weight: bold !important;
-    font-size: 4.5vw !important;
+    font-size: 3.5vw !important;
     text-transform: uppercase !important;
     color: white;
 }
@@ -331,18 +331,18 @@ md-dialog {
 
 @media screen and (min-width: 1px) and (max-width: 420px) {
     .small {
-        display:block !important;
+        display:inline-block !important;
     }
 }
 
 @media screen and (min-width: 421px) and (max-width: 1024px) {
     .medium {
-        display:block !important;
+        display:inline-block !important;
     }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 9999px) {
     .large {
-        display:block !important;
+        display:inline-block !important;
     }
 }

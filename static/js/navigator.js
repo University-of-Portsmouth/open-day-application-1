@@ -26,7 +26,6 @@ app.controller('navController', ['$scope', '$http', function($scope, $http) {
         $http.get("../../navigator.php")
             .then(function (response) {
                 $scope.buildings = response.data.records;
-                console.log($scope.buildings);
         });
 
 }]);
