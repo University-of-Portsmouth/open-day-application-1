@@ -59,7 +59,6 @@ md-menu-item {
 }
 
 ng-md-icon {
-    margin-right: 8px;
     fill: rgb(68, 37, 128);
 }
 
@@ -88,7 +87,12 @@ md-icon svg {
 
 /* General purpose classes */
 
-.vimeo-container {
+
+
+
+
+
+.vimeoContainer {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
@@ -96,12 +100,28 @@ md-icon svg {
     max-width: 100%;
 }    
 
-.vimeo-container iframe, .vimeo-container object, .vimeo-container embed {
+.vimeoContainer iframe, .vimeoContainer object, .vimeoContainer embed {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.plansContainer {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.plansContainer object {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 .nowrap {
@@ -116,10 +136,8 @@ md-icon svg {
     display: inline-block;
     font-family: "Gibson";
     font-weight: bold;
-    font-size: 5.25vw;
+    font-size: 4.5vw;
     text-transform: uppercase;
-    margin: auto;
-    margin-left: 5vw !important;
 
 }
 
@@ -129,13 +147,8 @@ md-icon svg {
     font-size: 4vw;
     color: white;
     text-transform: uppercase;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: -15px;
-    padding-bottom: -15px;
-    margin: 0 auto;
-    margin-bottom: 15px !important;
-    align: middle;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 footer {
@@ -155,14 +168,17 @@ footer {
 
 .introText {
     font-family: "Gibson";
-    font-size: 12pt;
+    font-size: 3.25vw;
+    line-height: 4vw;
     color: rgb(68, 37, 128);
 }
 
 .bodyText {
     font-family: "Helvetica Neue";
-    font-size: 4.25vw;
-    font-weight: 100; 
+    font-size: 3.25vw;
+    line-height: 4vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
 }
 
 .subHead {
@@ -187,6 +203,20 @@ footer {
     font-size: 3.50vw;
 }
 
+#planTitle {
+    position: absolute;
+    color: white !important;
+    font-size: 6vw !important;
+
+}
+
+#parallelogram {
+    width: 90%;
+    height: 0;
+    border-top: 15vw solid rgb(68, 37, 128);
+    border-right: 12vw solid transparent;
+    margin-right: 10px;
+}
 /* UoP colours */
 
 .purple {
@@ -260,13 +290,6 @@ footer {
     -webkit-transition-duration: 250ms;
 }
 
-div#banner {
-
-    min-height: 128px !important;
-    max-height: 128px !important;
-    overflow-x: hidden;
-}
-
 
 /* Misc. */
 
@@ -304,4 +327,22 @@ div#banner {
 
 md-dialog {
     background-color: white;
+}
+
+@media screen and (min-width: 1px) and (max-width: 420px) {
+    .small {
+        display:block !important;
+    }
+}
+
+@media screen and (min-width: 421px) and (max-width: 1024px) {
+    .medium {
+        display:block !important;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 9999px) {
+    .large {
+        display:block !important;
+    }
 }

@@ -35,66 +35,69 @@
         <script src="js/banner.js"></script>
         <script src="js/vcmessage.js"></script>
         <script src="js/feedbackanalytics.js"></script>
+        <script src="js/plans.js"></script>
 
         <!-- Google analytics -->
         <script>
-        (function(p,o,r,t,a,c,u,k){p['GoogleAnalyticsObject']=a;p[a]=p[a]||function(){
-        (p[a].q=p[a].q||[]).push(arguments)},p[a].l=1*new Date();c=o.createElement(r),
-        u=o.getElementsByTagName(r)[0];c.async=1;c.src=t;u.parentNode.insertBefore(c,u)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-265018-1', 'auto');
-        ga('send', 'pageview');
+            (function(p,o,r,t,a,c,u,k){p['GoogleAnalyticsObject']=a;p[a]=p[a]||function(){
+                (p[a].q=p[a].q||[]).push(arguments)},p[a].l=1*new Date();c=o.createElement(r),
+                    u=o.getElementsByTagName(r)[0];c.async=1;c.src=t;u.parentNode.insertBefore(c,u)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-265018-1', 'auto');
+ga('send', 'pageview');
         </script>
     </head>
 
-    <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill>
+    <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill onresize="checkScreenSize()">
 
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
-            <md-toolbar style="min-height: 12vh !important; max-height: 40vh !important">
-                <md-toolbar-row>
-                    <span layout-align="center center">
-                        <md-menu>
-                            <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.openMainMenu($mdOpenMenu, $event)">
-                                <ng-md-icon md-menu-origin icon="menu"  size="30"></ng-md-icon>
-                            </md-button>
-                            <md-menu-content width="2">
-                                <md-menu-item>
-                                    <md-button class="menuButton" ng-click="showSettings($event, 'settings.html')">
-                                        <ng-md-icon icon="settings"></ng-md-icon>
-                                        Settings
-                                    </md-button>
-                                </md-menu-item>
-                                <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
-                                <md-menu-item>
-                                    <md-button class="menuButton">
-                                        <ng-md-icon icon="login"></ng-md-icon>
-                                        Login
-                                    </md-button>
-                                </md-menu-item>
-                                <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
-                                <md-menu-item>
-                                    <md-button class="menuButton">
-                                        <ng-md-icon icon="help_outline"></ng-md-icon>
-                                        Help
-                                    </md-button>
-                                </md-menu-item>
-                            </md-menu-content>
-                        </md-menu>
-
-                        <span id="banner" class="mainHeader purple nowrap">University of Portsmouth</span>
-                    </span>
-                </md-toolbar-row>
-
-                <md-toolbar-row>
-                    <div layout="row" layout-align="center center">
-                        <md-button class="md-icon-button" aria-label="Back" ng-href="#/">
-                            <ng-md-icon md-menu-origin icon="arrow_back" flex></ng-md-icon>
+            <md-toolbar style="min-height: 15vw; max-height: 15vw;">
+                <div class="md-toolbar-tools">
+                    <md-button style="min-width: 10px !important; margin-top: 10px" aria-label="Back" ng-href="#/">
+                            <ng-md-icon class="large" icon="arrow_back" size="60" style="display: none"></ng-md-icon>
+                            <ng-md-icon class="medium" icon="arrow_back" size="30" style="display: none"></ng-md-icon>
+                            <ng-md-icon class="small" icon="arrow_back" size="22" style="display: none"></ng-md-icon>
                         </md-button>
-                        <span class="secondHeader turquoiseBG1">Open Day Visitor App</span>
-                    </div>
-                </md-toolbar-row>
-            </md-toolbar>
+                <span flex></span>
+                <span class="mainHeader purple nowrap">University of Portsmouth</span>
+                <span flex></span>
+                
+                <md-menu>
+                    <md-button style="min-width: 10px !important" aria-label="Settings" ng-click="ctrl.openMainMenu($mdOpenMenu, $event)">
+                        <ng-md-icon md-menu-origin class="large" icon="menu"  size="60" style="display: none"></ng-md-icon>
+                        <ng-md-icon md-menu-origin class="medium" icon="menu"  size="30" style="display: none"></ng-md-icon>
+                        <ng-md-icon md-menu-origin class="small" icon="menu"  size="22" style="display: none"></ng-md-icon>
+                    </md-button>
+                    <md-menu-content width="2">
+                        <md-menu-item>
+                            <md-button class="menuButton" ng-click="showSettings($event, 'settings.html')">
+                                <ng-md-icon icon="settings"></ng-md-icon>
+                                Settings
+                            </md-button>
+                        </md-menu-item>
+                        <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
+                        <md-menu-item>
+                            <md-button class="menuButton">
+                                <ng-md-icon icon="login"></ng-md-icon>
+                                Login
+                            </md-button>
+                        </md-menu-item>
+                        <md-divider style="color: rgba(255, 255, 255, 1)"></md-divider>
+                        <md-menu-item>
+                            <md-button class="menuButton">
+                                <ng-md-icon icon="help_outline"></ng-md-icon>
+                                Help
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                
+            </div>
+            <div align="center">
+                    <span class="secondHeader turquoiseBG1">Open Day Visitor App</span>
+                </div>
+                </md-toolbar>
 
             <md-content layout="column" flex>
 

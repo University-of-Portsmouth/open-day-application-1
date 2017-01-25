@@ -24,6 +24,10 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
             templateUrl: 'feedback/feedback.html',
             controller: 'feedbackController'
         })
+        .when('/plans', {
+            templateUrl: 'plans/plans.html',
+            controller: 'plansController'
+        })
 });
 
 
@@ -33,14 +37,14 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
         {
             icon: 'near_me',
             title: 'Navigator',
-            subtitle: 'Finds relevant buildings and highlights them on Google Maps',
+            subtitle: 'Helps you navigate UoP campus',
             destination: '#/navigator',
         },
 
         {
             icon: 'school',
             title: 'Applicant open day plans',
-            subtitle: 'Provides details relevant to you regarding our applicant open days',
+            subtitle: 'Presents you with the applicant open day plans',
             destination: '#/plans',
 
         },
@@ -48,14 +52,14 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
         {
             icon: 'directions_car',
             title: 'Car park locator',
-            subtitle: 'Finds nearby car parks',
+            subtitle: 'Allows you to find the nearest car park or choose one manually',
             destination: '#/parking',
         },
 
         {
             icon: 'accessibility',
-            title: 'Brief message from the VC',
-            subtitle: 'A brief video message from the VC',
+            title: 'Brief message from UoP',
+            subtitle: 'A brief video message from UoP',
             destination: '#/vcmessage',
         },
 
@@ -73,4 +77,14 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
         originatorEv = ev;
         $mdOpenMainMenu(ev);
     };
+
+    checkScreenSize = function() {
+        $scope.screenLarge = window.innerWidth > 760;
+        $scope.screenMedium = window.innerWidth > 500 && window.innerWidth < 760;
+        $scope.screenSmall = window.innerWidth > 200 && window.innerWidth < 500;
+        console.log($scope.screenLarge);
+    };
+
+    checkScreenSize();
+
 });
