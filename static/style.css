@@ -168,15 +168,15 @@ footer {
 
 .introText {
     font-family: "Gibson";
-    font-size: 3.25vw;
-    line-height: 4vw;
+    font-size: 4vw;
+    line-height: 4.75vw;
     color: rgb(68, 37, 128);
 }
 
 .bodyText {
     font-family: "Helvetica Neue";
-    font-size: 3.25vw;
-    line-height: 4vw;
+    font-size: 4vw;
+    line-height: 4.75vw;
     padding-top: 2vw;
     padding-bottom: 2vw;
 }
@@ -213,7 +213,7 @@ footer {
 #parallelogram {
     width: 90%;
     height: 0;
-    border-top: 15vw solid rgb(68, 37, 128);
+    border-top: 15vw solid rgba(68, 37, 128, 0.8);
     border-right: 12vw solid transparent;
     margin-right: 10px;
 }
