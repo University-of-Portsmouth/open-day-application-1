@@ -28,10 +28,22 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
             templateUrl: 'plans/plans.html',
             controller: 'plansController'
         })
+        .when('/contactus', {
+            templateUrl: 'contactus/contactus.html',
+            controller: 'contactusController'
+        })
 });
 
 
-app.controller('mainController', function ($scope, $mdDialog, $route) {
+app.controller('mainController', function ($scope, $mdDialog, $route, $location, $window) {
+
+
+    $scope.getLocation = function() {
+            $scope.location = $location.path();
+            console.log($scope.location);
+    };
+
+    $scope.$on("$locationChangeSuccess", function(){ $scope.getLocation() });
 
     $scope.mainMenu = [
         {
@@ -64,11 +76,17 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
         },
 
         {
-            icon: '',
+            icon: 'feedback',
             title: 'Feedback',
             subtitle: 'Let us know what you thought of our open day',
             destination: '#/feedback',
         },
+        {
+            icon: 'help',
+            title: 'Contact us',
+            subtitle: 'Ask us for help',
+            destination: '#/contactus',
+        }
     ];
 
     var originatorEv;
@@ -82,7 +100,6 @@ app.controller('mainController', function ($scope, $mdDialog, $route) {
         $scope.screenLarge = window.innerWidth > 760;
         $scope.screenMedium = window.innerWidth > 500 && window.innerWidth < 760;
         $scope.screenSmall = window.innerWidth > 200 && window.innerWidth < 500;
-        console.log($scope.screenLarge);
     };
 
     checkScreenSize();

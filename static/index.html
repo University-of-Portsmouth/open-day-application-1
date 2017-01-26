@@ -36,6 +36,7 @@
         <script src="js/vcmessage.js"></script>
         <script src="js/feedbackanalytics.js"></script>
         <script src="js/plans.js"></script>
+        <script src="js/contactus.js"></script>
 
         <!-- Google analytics -->
         <script>
@@ -52,12 +53,12 @@ ga('send', 'pageview');
 
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
-            <md-toolbar style="min-height: 15vw; max-height: 15vw;">
+            <md-toolbar style="min-height: 16vw; max-height: 16vw;">
                 <div class="md-toolbar-tools">
-                    <md-button style="min-width: 22px !important; margin-top: 10px" aria-label="Back" ng-href="#/">
-                        <ng-md-icon class="large" icon="arrow_back" size="60" style="display: none"></ng-md-icon>
-                        <ng-md-icon class="medium" icon="arrow_back" size="30" style="display: none"></ng-md-icon>
-                        <ng-md-icon class="small" icon="arrow_back" size="22" style="display: none"></ng-md-icon>
+                    <md-button style="min-width: 22px !important; margin-top: 12px" aria-label="Back" ng-href="#/" ng-show="location != '/'" ng-click="getLocation()">
+                        <ng-md-icon class="large" icon="arrow_back" size="60" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
+                        <ng-md-icon class="medium" icon="arrow_back" size="30" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
+                        <ng-md-icon class="small" icon="arrow_back" size="22" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
                     </md-button>
                     <span flex></span>
                     <span class="mainHeader purple nowrap">University of Portsmouth</span>
@@ -115,7 +116,7 @@ ga('send', 'pageview');
             </md-content>
 
             <!-- Footer - carousel -->
-            <md-toolbar class="purpleBG1 bannerCarousel" style="min-height: 128px !important; max-height: 128px !important">
+            <md-toolbar class="purpleBG1 bannerCarousel" style="min-height: 128px !important; max-height: 128px !important" ng-show="location != '/navigator' && location != '/parking'">
                 <div flex ng-controller="bannerController" id="banner">
                     <div uib-carousel active="active" interval="interval" style="min-height: 128px !important; max-height: 128px !important">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="min-height: 128px !important; max-height: 128px !important">

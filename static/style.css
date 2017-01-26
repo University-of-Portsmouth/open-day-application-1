@@ -1,8 +1,3 @@
-/*
- * Turquoise: 65, 192, 190
- * Purple: 68, 37, 128
- */
-
 @font-face {
     font-family: Gibson;
     src: url(fonts/Gibson-Light-webfont.woff);
@@ -24,12 +19,6 @@
     src: url(fonts/Helvetica-Neue-LT-Std-85-Heavy_22545.ttf);
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-
 md-divider {
     color: rgba(68, 37, 128, 0.22);
 }
@@ -50,10 +39,6 @@ md-menu-content {
     padding: 0;
 }
 
-md-menu {
-    margin: 0 !important;
-}
-
 md-menu-item {
     background-color: rgba(65, 192, 190, 0.95);
 }
@@ -70,27 +55,7 @@ ng-md-icon {
     color: white;
 }
 
-h3 {
-    margin-bottom: 0;
-    font-weight: normal;
-}
-
-h4 {
-    margin-top: 0;
-    font-weight: normal;
-    line-height: 94%;
-}
-
-md-icon svg {
-    fill: inherit;
-}
-
 /* General purpose classes */
-
-
-
-
-
 
 .vimeoContainer {
     position: relative;
@@ -128,10 +93,6 @@ md-icon svg {
     white-space: nowrap;
 }
 
-.fillRemaining {
-    flex: 1 1 auto;
-}
-
 .mainHeader {
     display: inline-block;
     font-family: "Gibson";
@@ -149,19 +110,6 @@ md-icon svg {
     text-transform: uppercase;
     padding-left: 1vw;
     padding-right: 1vw;
-}
-
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 25vw;
-    overflow-y: auto;
-}
-
-.backButton {
-    align: left;
 }
 
 /* UoP text */
@@ -207,7 +155,6 @@ footer {
     position: absolute;
     color: white !important;
     font-size: 6vw !important;
-
 }
 
 #parallelogram {
@@ -292,10 +239,6 @@ footer {
 
 
 /* Misc. */
-
-.carParkMarker {
-
-}
 
 .md-on {
     background-color: black !important;

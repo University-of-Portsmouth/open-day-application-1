@@ -9,3 +9,5 @@ app.directive('stickyFooter', function($mdSticky, $compile) {
         }
     };
 });
+
+

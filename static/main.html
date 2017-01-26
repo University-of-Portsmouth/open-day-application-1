@@ -3,13 +3,13 @@
     <md-list flex>
         <md-list-item class="md-2-line" ng-repeat="item in mainMenu" ng-href="{{item.destination}}">
             
-            <ng-md-icon class="large" icon="{{item.icon}}" size="36" style="display: none; margin-right: 18px"></ng-md-icon>
-            <ng-md-icon class="medium" icon="{{item.icon}}" size="30" style="display: none; margin-right: 18px"></ng-md-icon>
+            <ng-md-icon class="large" icon="{{item.icon}}" size="60" style="display: none; margin-right: 18px"></ng-md-icon>
+            <ng-md-icon class="medium" icon="{{item.icon}}" size="35" style="display: none; margin-right: 18px"></ng-md-icon>
             <ng-md-icon class="small" icon="{{item.icon}}" size="22" style="display: none; margin-right: 18px"></ng-md-icon>
 
             <div class="md-list-item-text" layout="column">
                 <span class="subHead turquoise">{{ item.title }}</span>
-                <span class="subSubHead">{{ item.subtitle }}</span>
+                <span class="subSubHead" style="font-size: 3vw !important">{{ item.subtitle }}</span>
             </div>
             <md-divider md-inset ng-if="!$last"></md-divider>
         </md-list-item>

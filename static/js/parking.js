@@ -1,5 +1,6 @@
-app.controller('parkingController', ['$scope', '$http', function($scope, $http) {
+app.controller('parkingController', ['$scope', '$http', function($scope, $http, $location) {
 
+    
     $scope.destination = '';
     $scope.highlightAll = false;
 

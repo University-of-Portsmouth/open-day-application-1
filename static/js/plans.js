@@ -1,3 +1,2 @@
-app.controller('plansController', ['$scope', function($scope) {
-
+app.controller('plansController', ['$scope', function($scope, $location) {
 }]);

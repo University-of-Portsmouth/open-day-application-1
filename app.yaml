@@ -26,10 +26,10 @@ skip_files:
 - ^(.*/)?\..*$
 
 beta_settings:
-  cloud_sql_instances: uopvisitorapp:europe-west1:visitorapp
+  cloud_sql_instances: test-uop-openday-application-1:europe-west1:test-uop-openday-application-1-sql
 
 env_variables:
-  MYSQL_DSN: mysql:unix_socket=/cloudsql/uopvisitorapp:europe-west1:visitorapp;dbname=visitorapp
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/test-uop-openday-application-1:europe-west1:test-uop-openday-application-1-sql
   MYSQL_USER: root
   MYSQL_PASSWORD: ''
 

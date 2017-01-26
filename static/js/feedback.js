@@ -1,8 +1,8 @@
-app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($scope, $http, $mdDialog) {
-
+app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($scope, $http, $mdDialog, $location) {
+   
     $scope.formErrors = '';
 
-    $scope.feedbackq1 = ["Wednesday 24th February 2017", "Saturday 27th February 2017", "Wednesday 2nd March 2017", "Wednesday 9th March 2017", "Saturday 12th March 2017", "Wednesday 23rd March 2017", "Saturday 23rd April 2017"];
+    $scope.feedbackq1 = ["Wednesday 8th February 2017", "Saturday 11th February 2017", "Wednesday 15th February 2017", "Wednesday 22nd February 2017", "Saturday 25th February 2017", "Wednesday 8th March 2017", "Saturday 11th March 2017", "Wednesday 15th March 2017", "Wednesday 22nd March 2017", "Saturday 25th April 2017"];
     $scope.q1 = '';
 
     $scope.feedbackq2 = [

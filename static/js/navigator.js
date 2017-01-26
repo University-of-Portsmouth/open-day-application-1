@@ -1,5 +1,6 @@
-app.controller('navController', ['$scope', '$http', function($scope, $http) {
- 
+app.controller('navController', ['$scope', '$http', function($scope, $http, $location) {
+
+
     $scope.destination = '';
     $scope.walking = true;
 
@@ -22,10 +23,10 @@ app.controller('navController', ['$scope', '$http', function($scope, $http) {
             $scope.travelMode = 'DRIVING';
         }
     };
-    
-        $http.get("../../navigator.php")
-            .then(function (response) {
-                $scope.buildings = response.data.records;
+
+    $http.get("../../navigator.php")
+        .then(function (response) {
+            $scope.buildings = response.data.records;
         });
 
 }]);

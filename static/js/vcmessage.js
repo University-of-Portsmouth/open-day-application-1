@@ -1,3 +1,2 @@
-app.controller('vcmessageController', ['$scope', function($scope) {
-
+app.controller('vcmessageController', ['$scope', function($scope, $location) {
 }]);
