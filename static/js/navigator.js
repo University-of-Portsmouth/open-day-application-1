@@ -2,7 +2,7 @@ app.controller('navController', ['$scope', '$http', function($scope, $http, $loc
 
 
     $scope.destination = '';
-    
+
     $scope.transportType = 'WALKING';
     $scope.transportTypes = [
         {
@@ -84,27 +84,28 @@ app.controller('navController', ['$scope', '$http', function($scope, $http, $loc
 
                 promise.then(function() {
                     $scope.destination = nearest.location;
+                    
                 });
             });
         }
     };
 
     $scope.chkParking = function() {
-        if ($scope.navMode == 'parking') {
-            $scope.getNearestCarPark();
-        }
+            if ($scope.navMode == 'parking') {
+                $scope.getNearestCarPark();
+            }
     };
 
     $http.get("../../navigatorBuildings.php")
         .then(function (response) {
             $scope.buildings = response.data.records;
         });
-    
+
     $http.get("../../navigatorTrains.php")
         .then(function (response) {
             $scope.trains = response.data.records;
         });
-    
+
     $http.get("../../navigatorParkandrides.php")
         .then(function (response) {
             $scope.parkandrides = response.data.records;
@@ -114,7 +115,7 @@ app.controller('navController', ['$scope', '$http', function($scope, $http, $loc
         .then(function (response) {
             $scope.foods = response.data.records;
         });
-    
+
     $http.get("../../navigatorParking.php")
         .then(function (response) {
             $scope.carparks = response.data.records;

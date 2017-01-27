@@ -12,10 +12,6 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
             templateUrl: 'navigator/navigator.html',
             controller: 'navController'
         })
-        .when('/parking', {
-            templateUrl: 'parking/parking.html',
-            controller: 'parkingController'
-        })
         .when('/vcmessage', {
             templateUrl: 'vcmessage/vcmessage.html',
             controller: 'vcmessageController'
@@ -60,14 +56,6 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
             destination: '#/plans',
 
         },
-
-        {
-            icon: 'directions_car',
-            title: 'Car park locator',
-            subtitle: 'Allows you to find the nearest car park or choose one manually',
-            destination: '#/parking',
-        },
-
         {
             icon: 'accessibility',
             title: 'A prolonged message from an astronaut',

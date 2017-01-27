@@ -11,7 +11,7 @@
         </md-input-container>
 
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'trains'">
-            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a train station" style="color: white !important" ng-change="console.log(destination)">
+            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a train station" style="color: white !important">
                 <md-option class="menuButton turquoiseBG1" ng-repeat="train in trains" value="{{train.location}}">{{ train.name }}</md-option>
             </md-select>
         </md-input-container>
@@ -37,14 +37,15 @@
         </md-input-container>
 
         <md-radio-group ng-model="transportType" layout="row" layout-align="start center">
-            <md-radio-button ng-repeat="t in transportTypes" ng-value="t.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2px;">{{ t.label }}</md-radio-button>
+            <md-radio-button ng-repeat="t in transportTypes" ng-value="t.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;">{{ t.label }}</md-radio-button>
         </md-radio-group>
-
-        <md-radio-group ng-model="navMode" layout="row" layout-align="start center" ng-change="chkParking()" layout-wrap>
-            <md-radio-button ng-repeat="n in navTypes" ng-value="n.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2px;">{{ n.label }}</md-radio-button>
+        <br/>
+        <md-radio-group ng-model="navMode" layout="row" layout-align="start center" layout-wrap>
+            <md-radio-button ng-repeat="n in navTypes" ng-value="n.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;">{{ n.label }}</md-radio-button>
         </md-radio-group>
-
+        <md-button class="menuButton turquoiseBG1" ng-if="navMode == 'parking'" ng-click="getNearestCarPark()">Find nearest car park</md-button>
     </div>
+
     <div flex>
         <ng-map zoom="13" center="[50.79, -1.09]" style="height: 30%">
             <directions
