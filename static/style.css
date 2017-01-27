@@ -237,7 +237,6 @@ ng-md-icon {
     -webkit-transition-duration: 250ms;
 }
 
-
 /* Misc. */
 
 .md-on {
@@ -250,7 +249,6 @@ ng-md-icon {
         display: none;
     }
 }
-
 
 .ng-pristine {
     color: rgb(68, 37, 128); 

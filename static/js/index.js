@@ -70,8 +70,8 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
 
         {
             icon: 'accessibility',
-            title: 'Brief message from UoP',
-            subtitle: 'A brief video message from UoP',
+            title: 'A prolonged message from an astronaut',
+            subtitle: '',
             destination: '#/vcmessage',
         },
 
@@ -103,5 +103,4 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
     };
 
     checkScreenSize();
-
 });
