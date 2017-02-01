@@ -1,5 +1,5 @@
 app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($scope, $http, $mdDialog, $location) {
-   
+
     $scope.formErrors = '';
 
     $scope.feedbackq1 = ["Wednesday 8th February 2017", "Saturday 11th February 2017", "Wednesday 15th February 2017", "Wednesday 22nd February 2017", "Saturday 25th February 2017", "Wednesday 8th March 2017", "Saturday 11th March 2017", "Wednesday 15th March 2017", "Wednesday 22nd March 2017", "Saturday 25th April 2017"];
@@ -119,7 +119,6 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
             if ($scope.feedbackForm.q7.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 7.\n';
             }
-            console.log($scope.formErrors);
         }
     };
 

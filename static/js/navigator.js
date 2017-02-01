@@ -80,10 +80,11 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         $scope.getUserLocation();
     });
 
-    $interval(function() { $scope.getUserLocation(); console.log($scope.userLocation); }, 2000);
+    $interval(function() { $scope.getUserLocation(); }, 2000);
 
     $scope.clearDest = function() {
         $scope.destination = '';
+        console.log($scope.destination);
     };
 
     $scope.parkAndRide = function() {
