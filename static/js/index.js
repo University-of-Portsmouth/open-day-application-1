@@ -43,47 +43,45 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
 
     $scope.mainMenu = [
         {
+            icon: 'accessibility',
+            title: 'Welcome to the University of Portsmouth',
+            subtitle: '',
+            destination: '#/vcmessage',
+        },
+        {
             icon: 'near_me',
-            title: 'Navigator',
-            subtitle: 'Helps you navigate UoP campus',
+            title: 'Wayfinding',
+            subtitle: 'Travel information, campus map and directions',
             destination: '#/navigator',
         },
-
         {
             icon: 'school',
-            title: 'Applicant open day plans',
-            subtitle: 'Presents you with the applicant open day plans',
+            title: 'Applicant Open Days',
+            subtitle: 'Event programme and discounted parking voucher',
             destination: '#/plans',
 
         },
         {
-            icon: 'accessibility',
-            title: 'A prolonged message from an astronaut',
-            subtitle: '',
-            destination: '#/vcmessage',
-        },
-
-        {
             icon: 'feedback',
             title: 'Feedback',
-            subtitle: 'Let us know what you thought of our open day',
+            subtitle: 'Chance to win a £100 gift card',
             destination: '#/feedback',
         },
         {
             icon: 'help',
             title: 'Contact us',
-            subtitle: 'Ask us for help',
+            subtitle: 'Have a question?',
             destination: '#/contactus',
         }
     ];
-
+/*
     var originatorEv;
 
     this.openMainMenu = function($mdOpenMainMenu, ev) {
         originatorEv = ev;
         $mdOpenMainMenu(ev);
     };
-
+*/
     checkScreenSize = function() {
         $scope.screenLarge = window.innerWidth > 760;
         $scope.screenMedium = window.innerWidth > 500 && window.innerWidth < 760;

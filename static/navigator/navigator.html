@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<md-content layout-padding>
+<md-content layout-padding onload="getUserLocation()">
     <div flex style="padding-bottom: 0">
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'buildings'">
 
-            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building" style="color: white !important" ng-change="console.log(destination); console.log(transportType);">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}">{{ building.name }} ({{ building.code }})
+            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building" style="color: white !important" >
+                <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}" ng-click="setLoading()">{{ building.name }} ({{ building.code }})
                 </md-option>
             </md-select>
 
@@ -12,56 +12,63 @@
 
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'trains'">
             <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a train station" style="color: white !important">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="train in trains" value="{{train.location}}">{{ train.name }}</md-option>
-            </md-select>
-        </md-input-container>
-
-        <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'parkandride'">
-            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a park & ride station" style="color: white !important">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="parkandride in parkandrides" value="{{parkandride.location}}">{{ parkandride.name }}</md-option>
+                <md-option class="menuButton turquoiseBG1" ng-repeat="train in trains" value="{{train.location}}" ng-click="setLoading()">{{ train.name }}</md-option>
             </md-select>
         </md-input-container>
 
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'food'">
             <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a food catering service" style="color: white !important">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="food in foods" value="{{food.location}}">{{ food.name }}</md-option> 
+                <md-option class="menuButton turquoiseBG1" ng-repeat="food in foods" value="{{food.location}}" ng-click="setLoading()">{{ food.name }}</md-option> 
             </md-select>
         </md-input-container>
 
 
         <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 0; margin-bottom: 0" ng-show="navMode == 'parking'">
             <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a car park" style="color: white !important">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="carpark in carparks" value="{{carpark.location}}">{{ carpark.name }}
+                <md-option class="menuButton turquoiseBG1" ng-repeat="carpark in carparks" value="{{carpark.location}}" ng-click="setLoading()">{{ carpark.name }}
                 </md-option>
             </md-select>
         </md-input-container>
 
         <md-radio-group ng-model="transportType" layout="row" layout-align="start center">
-            <md-radio-button ng-repeat="t in transportTypes" ng-value="t.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;">{{ t.label }}</md-radio-button>
+            <md-radio-button ng-repeat="t in transportTypes" ng-value="t.value" class="bodyText nowrap" style="padding-top: 2vh; padding-bottom: 1vh;">{{ t.label }}</md-radio-button>
         </md-radio-group>
         <br/>
         <md-radio-group ng-model="navMode" layout="row" layout-align="start center" layout-wrap>
-            <md-radio-button ng-repeat="n in navTypes" ng-value="n.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;">{{ n.label }}</md-radio-button>
+            <md-radio-button ng-repeat="n in navTypes" ng-value="n.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;" ng-click="clearDest()">{{ n.label }}</md-radio-button>
+            <md-radio-button ng-value="parkandride" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;" ng-click="parkAndRide();setLoading()">Park and Ride</md-radio-button>
         </md-radio-group>
-        <md-button class="menuButton turquoiseBG1" ng-if="navMode == 'parking'" ng-click="getNearestCarPark()">Find nearest car park</md-button>
+        <md-button class="menuButton turquoiseBG1" ng-if="navMode == 'parking'" ng-click="setLoading();getNearestCarPark();">Find nearest car park</md-button>
     </div>
 
     <div flex>
-        <ng-map zoom="13" center="[50.79, -1.09]" style="height: 30%">
+        <ng-map center="[50.79, -1.09]" style="height: 30%">
             <directions
-                draggable="false"
                 panel="directions-panel"
                 travel-mode="{{transportType}}"
-                origin="current-location"
+                origin="{{userLocation}}"
                 destination="{{destination}}">
             </directions>
+            <custom-marker
+                ng-if="navMode == 'parking'"
+                ng-repeat="carpark in carparks"
+                position="{{carpark.location}}">
+                <div><ng-md-icon icon="directions_car" size="22"></ng-md-icon></div>
+            </custom-marker>
+<!--
             <marker
                 ng-if="navMode == 'parking'"
-                ng-repeat="carpark in carParks"
+                ng-repeat="carpark in carparks"
                 position="{{carpark.location}}"
-                animation="Animation.DROP">
-            </marker>
+                animation="Animation.DROP"
+                icon="{
+                    url: 'img/carMarker.png'
+                    }">
+                </marker>
+                -->
         </ng-map>
+        <p ng-show="loading" class="bodyText"><img id="loadingSpinner" src="img/spinner.gif"></img> Loading, please wait...</p>
+        <p ng-show="geoFail" class="bodyText" style="color: red !important">FATAL ERROR: Geolocation turned off or browser does not support HTML5.</p>
         <div flex id="directions-panel" style="width: 100%; padding: 0px 5px">
         </div>
     </div>

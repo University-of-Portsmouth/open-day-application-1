@@ -55,6 +55,10 @@ ng-md-icon {
     color: white;
 }
 
+input { 
+    outline: none !important;
+}
+
 /* General purpose classes */
 
 .vimeoContainer {
