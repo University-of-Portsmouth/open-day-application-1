@@ -49,12 +49,12 @@ ga('send', 'pageview');
     </head>
 
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill onresize="checkScreenSize()">
-
+        <noscript><p>FATAL ERROR: Javascript is disabled, enable it.</p></noscript>
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
             <md-toolbar style="min-height: 12vh; max-height: 12vh;">
                 <div class="md-toolbar-tools" layout-align="center center">
-                    <md-button style="min-width: 22px !important" aria-label="Back" ng-href="#/" ng-show="location != '/'" ng-click="getLocation()">
+                    <md-button style="min-width: 22px !important; position: absolute !important; left: 2.5vw; top: 2vh;" aria-label="Back" ng-href="#/" ng-show="location != '/'" ng-click="getLocation()">
                         <ng-md-icon class="large" icon="arrow_back" size="60" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
                         <ng-md-icon class="medium" icon="arrow_back" size="30" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
                         <ng-md-icon class="small" icon="arrow_back" size="22" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>

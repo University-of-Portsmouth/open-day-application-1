@@ -5,7 +5,6 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $scope.geoFail = false;
 
     var map;
-    
 
     $scope.destination = '';
 
