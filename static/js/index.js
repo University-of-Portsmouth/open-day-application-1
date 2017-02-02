@@ -57,7 +57,7 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
         {
             icon: 'school',
             title: 'Applicant Open Days',
-            subtitle: 'Event programme and discounted parking voucher',
+            subtitle: 'All the information you need to plan your visit',
             destination: '#/plans',
 
         },
