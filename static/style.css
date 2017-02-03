@@ -252,6 +252,26 @@ input {
     .bannerCarousel {
         display: none;
     }
+  /* 
+    #navContainer {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #navMap {
+        float: left;
+        width: 50% !important;
+        height: 40% !important;
+    }
+
+    #directionsPanel {
+        width: 50% !important;
+        height: 40% !important;
+        float: left !important;
+        overflow: auto !important;
+        padding: 0px 5px !important;
+    }
+*/
 }
 
 .ng-pristine {

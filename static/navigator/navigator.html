@@ -30,6 +30,13 @@
             </md-select>
         </md-input-container>
 
+        <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 0; margin-bottom: 0" ng-show="navMode == 'halls'">
+            <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a student hall" style="color: white !important">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="hall in halls" value="{{hall.location}}" ng-click="setLoading()">{{ hall.name }}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        
         <md-radio-group ng-model="transportType" layout="row" layout-align="start center">
             <md-radio-button ng-repeat="t in transportTypes" ng-value="t.value" class="bodyText nowrap" style="padding-top: 2vh; padding-bottom: 1vh;">{{ t.label }}</md-radio-button>
         </md-radio-group>
@@ -55,17 +62,6 @@
                 position="{{carpark.location}}">
                 <div><ng-md-icon icon="directions_car" size="22"></ng-md-icon></div>
             </custom-marker>
-<!--
-            <marker
-                ng-if="navMode == 'parking'"
-                ng-repeat="carpark in carparks"
-                position="{{carpark.location}}"
-                animation="Animation.DROP"
-                icon="{
-                    url: 'img/carMarker.png'
-                    }">
-                </marker>
-                -->
         </ng-map>
         <p ng-show="loading && !geoFail" class="bodyText"><img id="loadingSpinner" src="img/spinner.gif"></img> Loading, please wait...</p>
         <p ng-show="geoFail" class="bodyText" style="color: red !important">FATAL ERROR: Geolocation turned off or browser does not support HTML5. You may need to enable "Location Services" or "Geolocation" in your mobile device settings.</p>

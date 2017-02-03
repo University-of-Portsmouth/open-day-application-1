@@ -3,7 +3,8 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $scope.userLocation;
     $scope.loading = false;
     $scope.geoFail = false;
-
+    $scope.streetView = false;
+    
     var map;
 
     $scope.destination = '';
@@ -37,6 +38,10 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         {
             label: 'Car parks',
             value: 'parking'
+        },
+        {
+            label: 'Student halls',
+            value: 'halls'
         }
     ];
 
@@ -45,13 +50,22 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $scope.trains = [];
     $scope.foods = [];
     $scope.carparks = [];
-    
+    $scope.halls = [];
+
+    $scope.toggleStreetView = function() {
+
+        $timeout(function() { $scope.streetView = !$scope.streetView; }, 10);
+        console.log($scope.streetView);
+    };
+
     $scope.spawnListeners = function() {
     
         NgMap.getMap().then(function(evtMap) {
             map = evtMap;
             map.addListener('idle', function() {
+
                 $scope.loading = false;
+                console.log($scope.loading);
             });
         });
     };
@@ -88,10 +102,8 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     };
 
     $scope.parkAndRide = function() {
-        console.log($scope.destination);
         $scope.destination = "Park and Ride Portsmouth, Tipner Lane, Portsmouth";
         $scope.transportType = 'DRIVING';    
-        console.log($scope.destination);
     };
 
     $scope.getNearestCarPark = function() {
@@ -164,4 +176,10 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         .then(function (response) {
             $scope.carparks = response.data.records;
         });
+    
+    $http.get("../../navigatorHalls.php")
+        .then(function (response) {
+            $scope.halls = response.data.records;
+        });
+
 }]);

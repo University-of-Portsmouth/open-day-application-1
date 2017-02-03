@@ -18,7 +18,6 @@
 
         <script src="lib/angular-material.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.3.2/svg-morpheus.js"></script>
         <script src="lib/ui-bootstrap-custom-2.4.0.min.js"></script>
 
         <!-- Per-page JavaScript -->
@@ -34,7 +33,7 @@
         <script src="js/contactus.js"></script>
 
         <!-- Google Maps stuff -->
-        <script src="https://maps.google.com/maps/api/js?key=AIzaSyA_M8pFurDyCMfwF4P_yCRJhlmu9cJmAUE&libraries=placeses,visualization,drawing,geometry,places"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyCmbQ8CfwEoZFAtIK0WobhzmSP3L4KzgcY&libraries=placeses,visualization,drawing,geometry,places"></script>
         <script src="lib/ng-map.min.js"></script>
 
         <!-- Google analytics -->
@@ -51,7 +50,7 @@ ga('send', 'pageview');
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill onresize="checkScreenSize()">
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
-            <md-toolbar style="min-height: 12vh; max-height: 12vh;">
+            <md-toolbar style="min-height: 14vh; max-height: 14vh;">
                 <div class="md-toolbar-tools" layout-align="center center">
                     <md-button style="min-width: 22px !important; position: absolute !important; left: 2.5vw; top: 2vh;" aria-label="Back" ng-href="#/" ng-show="location != '/'" ng-click="getLocation()">
                         <ng-md-icon class="large" icon="arrow_back" size="60" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
@@ -71,7 +70,7 @@ ga('send', 'pageview');
                 <noscript>FATAL ERROR: Javascript is disabled, enable it.</noscript>
                 <!-- Main view -->
                 <section flex="none">
-                    <div ng-view class="slideLeft" role="main"></div>
+                    <div ng-view class="slideLeft" role="main" autoscroll="true"></div>
                 </section>
 
             </md-content>
