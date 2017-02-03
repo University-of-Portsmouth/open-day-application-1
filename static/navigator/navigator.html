@@ -43,13 +43,13 @@
         <br/>
         <md-radio-group ng-model="navMode" layout="row" layout-align="start center" layout-wrap>
             <md-radio-button ng-repeat="n in navTypes" ng-value="n.value" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;" ng-click="clearDest()">{{ n.label }}</md-radio-button>
-            <md-radio-button ng-value="parkandride" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;" ng-click="parkAndRide();setLoading()">Park and Ride</md-radio-button>
+            <md-radio-button ng-value="parkandride" class="bodyText nowrap" style="padding-top: 2px; padding-bottom: 2vw;" ng-click="clearDest();parkAndRide();setLoading();">Park and Ride</md-radio-button>
         </md-radio-group>
-        <md-button class="menuButton turquoiseBG1" ng-if="navMode == 'parking'" ng-click="setLoading();getNearestCarPark();">Find nearest car park</md-button>
+        <md-button class="menuButton turquoiseBG1 fattenButton" ng-if="navMode == 'parking'" ng-click="clearDest();setLoading();getNearestCarPark();">Find nearest car park</md-button>
     </div>
 
     <div flex>
-        <ng-map center="[50.79, -1.09]" style="height: 30%">
+        <ng-map id="navMap" center="[50.79, -1.09]" style="height: 30%">
             <directions
                 panel="directions-panel"
                 travel-mode="{{transportType}}"

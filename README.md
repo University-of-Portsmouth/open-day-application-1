@@ -5,7 +5,7 @@ An open day visitor mobile web app for the University of Portsmouth.
 This app is best viewed on devices with screen widths under 1024px. Use the Google Chrome developer tools (right click, inspect) to emulate a mobile device.
 
 ## Releases
-The most current release can be found [here](https://uopvisitorapp.appspot.com).
+The most current release can be found [here](https://test-uop-openday-application-1.appspot.com/#/).
 
 ## Frameworks/technologies used
 [AngularJS 1](https://angularjs.org/)

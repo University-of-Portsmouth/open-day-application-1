@@ -247,10 +247,67 @@ input {
     background-color: black !important;
 }
 
+#mainToolbar {
+    min-height: 15vh;
+    max-height: 15vh;
+}
+
+ #bannerLogo {
+    max-height: 15vh;
+    max-width: 15vw;
+    margin-top: 8vh;
+ }
+
+
+.warnbox-content {
+    visibility: hidden;
+}
 @media (orientation: landscape)
 {
     .bannerCarousel {
         display: none;
+    }
+
+    #mainToolbar {
+        min-height: 23vh !important;
+        max-height: 23vh !important;
+    }
+
+    #bannerLogo {
+        margin-top: 10vh !important;
+    }
+
+    .menuButton {
+        font-size: 2.5vw !important;
+    }
+
+    .bodyText {
+        font-size: 2.5vw !important;
+    }
+
+    #navMap {
+        height: 66% !important;
+    }
+    
+    .fattenButton {
+        padding: 1vw;
+        padding-top: 0.5vw !important;
+        padding-bottom: 0.5vw !important;
+    }
+
+    .subHead {
+        font-size: 2.5vw !important;
+        line-height: 3.5vw !important;
+    }
+
+    .subSubHead {
+        font-size: 2vw !important;
+        line-height: 2.75vw !important;
+    }
+
+    .introText {
+        font-size: 3vw !important;
+        line-height: 3.75vw;
     }
   /* 
     #navContainer {
@@ -297,6 +354,11 @@ md-dialog {
 @media screen and (min-width: 1px) and (max-width: 420px) {
     .small {
         display:inline-block !important;
+    }
+
+    #bannerLogo {
+        max-height: 19vh !important;
+        max-width: 19vw !important; 
     }
 }
 

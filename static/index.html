@@ -50,7 +50,7 @@ ga('send', 'pageview');
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill onresize="checkScreenSize()">
         <!-- Top toolbar -->
         <div layout="column" layout-fill>
-            <md-toolbar style="min-height: 14vh; max-height: 14vh;">
+            <md-toolbar id="mainToolbar">
                 <div class="md-toolbar-tools" layout-align="center center">
                     <md-button style="min-width: 22px !important; position: absolute !important; left: 2.5vw; top: 2vh;" aria-label="Back" ng-href="#/" ng-show="location != '/'" ng-click="getLocation()">
                         <ng-md-icon class="large" icon="arrow_back" size="60" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
@@ -59,7 +59,7 @@ ga('send', 'pageview');
                     </md-button>
                     <!--<span class="mainHeader purple nowrap">University of Portsmouth</span>-->
                     <span flex></span>
-                    <span><img src="img/UoPportraitPUR300dpi.jpg" style="max-height: 10vh; max-width: 10vh; margin-top: 5vh"></img></span>
+                    <img id="bannerLogo" src="img/UoPportraitPUR300dpi.jpg"></img>
                     <span flex></span>
                     <span class="secondHeader turquoiseBG1 nowrap" style="max-height: 10vh; margin-top: 5vh;">Open Day Visitor App</span>
                     <span flex></span>
@@ -70,7 +70,7 @@ ga('send', 'pageview');
                 <noscript>FATAL ERROR: Javascript is disabled, enable it.</noscript>
                 <!-- Main view -->
                 <section flex="none">
-                    <div ng-view class="slideLeft" role="main" autoscroll="true"></div>
+                    <div ng-view autoscroll class="slideLeft" role="main"></div>
                 </section>
 
             </md-content>

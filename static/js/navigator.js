@@ -97,7 +97,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $interval(function() { $scope.getUserLocation(); }, 2000);
 
     $scope.clearDest = function() {
-        $scope.destination = '';
+        $timeout(function() { $scope.destination = ''; }, 50);
         console.log($scope.destination);
     };
 
