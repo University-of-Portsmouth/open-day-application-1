@@ -4,7 +4,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $scope.loading = false;
     $scope.geoFail = false;
     $scope.streetView = false;
-    
+
     var map;
 
     $scope.destination = '';
@@ -21,14 +21,14 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         }
     ];
 
-    $scope.navMode = 'buildings';
+    $scope.navMode = '';
     $scope.navTypes = [
         {
             label: 'Buildings',
             value: 'buildings'
         },
         {
-            label: 'Trains',
+            label: 'Train stations',
             value: 'trains'
         },
         {
@@ -58,20 +58,15 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         console.log($scope.streetView);
     };
 
-    $scope.spawnListeners = function() {
-    
-        NgMap.getMap().then(function(evtMap) {
-            map = evtMap;
-            map.addListener('idle', function() {
-
-                $scope.loading = false;
-                console.log($scope.loading);
-            });
+    NgMap.getMap({id:"navMap"}).then(function(evtMap) {
+        map = evtMap;
+        map.addListener('idle', function() {
+            $scope.loading = false;
+            console.log($scope.loading + " loading var");
         });
-    };
-    
-    $scope.spawnListeners();
-    
+    });
+
+
     $scope.setLoading = function() {
         $scope.loading = true;
     };
@@ -83,10 +78,10 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
                 $timeout(function() { $scope.userLocation = { lat: position.coords.latitude, lng: position.coords.longitude }; }, 50);
             },
 
-        function() {
-            $scope.geoFail = true;            
-        }
-        );
+                function() {
+                    $scope.geoFail = true;            
+                }
+            );
         } 
     };
 
@@ -107,7 +102,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     };
 
     $scope.getNearestCarPark = function() {
-        
+
         $scope.loading = true;
         var pos;
         var currNearest = -1;
@@ -131,7 +126,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
                         }
                     }
 
-                    
+
                     if (nearest !== 'undefined' && i == $scope.carparks.length - 1) {
                         console.log("Success");
                         resolve("The nearest car park was found");
@@ -144,7 +139,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
 
                 promise.then(function() {
                     console.log("Promise fulfilled");
-                    
+
                     $timeout(function() { 
                         $scope.destination = nearest.location;
                         $scope.transportType = 'DRIVING';
@@ -176,7 +171,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         .then(function (response) {
             $scope.carparks = response.data.records;
         });
-    
+
     $http.get("../../navigatorHalls.php")
         .then(function (response) {
             $scope.halls = response.data.records;

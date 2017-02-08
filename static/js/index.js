@@ -44,19 +44,19 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
     $scope.mainMenu = [
         {
             icon: 'accessibility',
-            title: 'Welcome to the University of Portsmouth',
-            subtitle: '',
+            title: 'Welcome',
+            subtitle: 'Experience the University of Portsmouth',
             destination: '#/vcmessage',
         },
         {
             icon: 'near_me',
             title: 'Wayfinding',
-            subtitle: 'Travel information, campus map and directions',
+            subtitle: 'Travel information and directions',
             destination: '#/navigator',
         },
         {
             icon: 'school',
-            title: 'Applicant Open Days',
+            title: 'Open Days',
             subtitle: 'All the information you need to plan your visit',
             destination: '#/plans',
 
@@ -64,13 +64,13 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
         {
             icon: 'feedback',
             title: 'Feedback',
-            subtitle: 'Chance to win a £100 gift card',
+            subtitle: 'Your chance to win a £100 gift card',
             destination: '#/feedback',
         },
         {
             icon: 'help',
             title: 'Contact us',
-            subtitle: 'Have a question?',
+            subtitle: 'Any questions? Get in touch',
             destination: '#/contactus',
         }
     ];

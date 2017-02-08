@@ -33,7 +33,7 @@
         <script src="js/contactus.js"></script>
 
         <!-- Google Maps stuff -->
-        <script src="https://maps.google.com/maps/api/js?key=AIzaSyCmbQ8CfwEoZFAtIK0WobhzmSP3L4KzgcY&libraries=placeses,visualization,drawing,geometry,places"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyA9UVeyPzxl3nuekmIcF-ASdsmC1bl6m54&libraries=placeses,visualization,drawing,geometry,places"></script>
         <script src="lib/ng-map.min.js"></script>
 
         <!-- Google analytics -->
@@ -57,11 +57,10 @@ ga('send', 'pageview');
                         <ng-md-icon class="medium" icon="arrow_back" size="30" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
                         <ng-md-icon class="small" icon="arrow_back" size="22" style="display: none" ng-show="location != '/'" ng-click="getLocation()"></ng-md-icon>
                     </md-button>
-                    <!--<span class="mainHeader purple nowrap">University of Portsmouth</span>-->
-                    <span flex></span>
                     <img id="bannerLogo" src="img/UoPportraitPUR300dpi.jpg"></img>
+                    <img id="bannerLogoLandscape" src="img/UoPlandscapePUR300dpi.jpg" style="display: none"></img>
                     <span flex></span>
-                    <span class="secondHeader turquoiseBG1 nowrap" style="max-height: 10vh; margin-top: 5vh;">Open Day Visitor App</span>
+                    <span class="secondHeader turquoiseBG1 nowrap" style="max-height: 10vh; margin-top: 5vh;">Visit us</span>
                     <span flex></span>
                 </div>
             </md-toolbar>
@@ -76,7 +75,7 @@ ga('send', 'pageview');
             </md-content>
 
             <!-- Footer - carousel -->
-            <md-toolbar class="purpleBG1 bannerCarousel" style="min-height: 128px !important; max-height: 128px !important" ng-if="location != '/navigator' && location != '/parking' && location != '/vcmessage' && location != '/feedback' && location != '/plans'">
+            <md-toolbar class="bannerCarousel" style="min-height: 128px !important; max-height: 128px !important; background-color: rgb(87, 60, 141);" ng-if="location != '/navigator' && location != '/parking' && location != '/vcmessage' && location != '/feedback' && location != '/plans'">
                 <div flex ng-controller="bannerController" id="banner">
                     <div uib-carousel active="active" interval="interval" style="min-height: 128px !important; max-height: 128px !important; overflow: hidden !important: position: relative !important;">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="min-height: 128px !important; max-height: 128px !important; overflow: hidden !important; position: relative !important">

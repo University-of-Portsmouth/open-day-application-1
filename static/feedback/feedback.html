@@ -1,95 +1,217 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <md-content layout-padding id="feedbackContent">    
-
     <form name="feedbackForm" novalidate ng-submit="submitFeedback()">
+    <div flex><p class="introText">We are always trying to improve the quality of the service we offer to students and this includes our Applicant Open Days. We would be extremely grateful if you could spare a few moments to complete this questionnaire on your experience.</p></div>
+        <br/>
         <div flex>
-            <label class="subSubHead purple">1. On which Applicant Open Day did you attend?</label>
-            <md-select id="q1" name="q1" ng-model="q1" class="bodyText" ng-required="true">
+            <p class="subSubHead purple">1. On which Open Day did you attend?</p>
+            <md-select id="q1" name="q1" ng-model="q1" class="bodyText" ng-required="true" aria-label="Feedback question 1">
                 <md-option class="menuButton turquoiseBG1" ng-repeat="date in feedbackq1" value="{{date}}">
                     {{date}}
                 </md-option>
 
             </md-select>
         </div>
-        <br>
-
+        <br/>
         <div flex>
-            <p class="subSubHead purple">2. How useful did you find the morning part of the Applicant Open Day? (Accommodation, campus and city tours given by our Student Marketing Assistants in purple)</p>
-            <md-radio-group id="q2" name="q2" ng-model="q2" ng-required="true">
-                <md-radio-button class="bodyText" ng-repeat="a in feedbackq2"
-                    ng-value="a.value">
-                    {{ a.label }} <br/>
-                </md-radio-button>
-            </md-radio-group>
-            <label class="subSubHead purple">Comments: </label>
-            <textarea class="feedbackTextarea" ng-model="q2c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
+            <p class="subSubHead purple">2. Which department did you visit?</p>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 8 February 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_1" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 11 February 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_2" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 15 February 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_3" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 22 February 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_4" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 25 February 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_5" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 8 March 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_6" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 11 March 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_7" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 15 March 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_8" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 22 March 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_9" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 22 April 2017'" aria-label="Feedback question 2">
+                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_10" value="{{d}}" >
+                    {{d}}
+                </md-option>
+            </md-select>
+
+            <label class="subSubHead purple" for="q2_comment">Other (please specify): </label>
+            <textarea id="q2_comment" name="q2_comment" class="feedbackTextarea bodyText" ng-model="q2" ng-maxlength="500" style="margin-left: 1px"></textarea>
         </div>
-        <br>
+        <br/>
 
         <div flex>
-            <p class="subSubHead purple">3. How useful did you find the afternoon part of the Applicant Open Day? (With your department)</p>
+            <p class="subSubHead purple">3. How would you rate the morning activities?</p>
+            <br/>
+
             <md-radio-group id="q3" name="q3" ng-model="q3" ng-required="true">
-                <md-radio-button class="bodyText" ng-repeat="a in feedbackq3"
+                <md-radio-button class="bodyText" style="line-height: 0 !important;" ng-repeat="a in feedbackq3"
                     ng-value="a.value">
                     {{ a.label }} <br/>
                 </md-radio-button>
             </md-radio-group>
 
-            <label class="subSubHead purple">Comments: </label>
-            <textarea class="feedbackTextarea" ng-model="q3c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
+            <label class="subSubHead purple" for="q3_comment">Comments: </label>
+            <textarea id="q3_comment" name="q3_comment" class="feedbackTextarea bodyText" ng-model="q3_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q3 != 'Poor'"></textarea>
+            <textarea id="q3_comment" name="q3_comment" class="feedbackTextarea bodyText" ng-model="q3_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q3 == 'Poor'" ng-required="true"></textarea>
         </div>
-        <br>
+        <br/>
 
         <div flex>
-            <p class="subSubHead purple">4. Are we your first or insurance choice?</p>
+            <p class="subSubHead purple">4. How would you rate the afternoon activities?</p>
+            <br/>
+
             <md-radio-group id="q4" name="q4" ng-model="q4" ng-required="true">
-                <md-radio-button class="bodyText" ng-repeat="a in feedbackq4"
+                <md-radio-button class="bodyText" style="line-height: 0 !important;" ng-repeat="a in feedbackq3"
                     ng-value="a.value">
                     {{ a.label }} <br/>
                 </md-radio-button>
             </md-radio-group>
-        </div>
-        <br>
 
+            <label class="subSubHead purple" for="q4_comment">Comments: </label>
+            <textarea id="q4_comment" name="q4_comment" class="feedbackTextarea bodyText" ng-model="q4_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q4 != 'Poor'"></textarea>
+            <textarea id="q4_comment" name="q4_comment" class="feedbackTextarea bodyText" ng-model="q4_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q4 == 'Poor'" ng-required="true"></textarea>
+        </div>
+        <br/>
 
         <div flex>
-            <p class="subSubHead purple">5. Based on your experience of the Applicant Open Day, which of the following applies?</p>
+            <p class="subSubHead purple">5. Is the University of Portsmouth likely to be...</p>
             <md-radio-group id="q5" name="q5" ng-model="q5" ng-required="true">
-                <md-radio-button class="bodyText" ng-repeat="a in feedbackq5"
+                <md-radio-button class="bodyText" style="line-height: 0 !important;" ng-repeat="a in feedbackq5"
+                    ng-value="a.value">
+                    {{ a.label }} <br/>
+                </md-radio-button>
+            </md-radio-group>
+        </div>
+        <br/>
+
+
+        <div flex>
+            <p class="subSubHead purple">6. How does our Open Day compare to other Open Days you have attended?</p>
+            <md-radio-group id="q6" name="q6" ng-model="q6" ng-required="true">
+                <md-radio-button class="bodyText" style="line-height: 0 !important;" ng-repeat="a in feedbackq6"
                     ng-value="a.value">
                     {{ a.label }} <br/>
                 </md-radio-button>
             </md-radio-group>
 
-            <label class="subSubHead purple">Comments: </label>
-            <textarea class="feedbackTextarea" ng-model="q5c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
+            <label class="subSubHead purple" for="q6_comment">Comments: </label>
+            <textarea id="q6_comment" name="q6_comment" class="feedbackTextarea bodyText" ng-model="q6_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q6 != 'Worse'"></textarea>
+            <textarea id="q6_comment" name="q6_comment" class="feedbackTextarea bodyText" ng-model="q6_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q6 == 'Worse'" ng-required="true"></textarea>
         </div>
-        <br>
+        <br/>
 
         <div flex>
-            <p class="subSubHead purple">6. How could we improve the Applicant Open Day?</p>
-            <textarea id="q6" name="q6" class="feedbackTextarea" ng-model="q6" ng-maxlength="500" ng-required="true" ng-maxlength="500"></textarea>
-        </div>
-        <br>
-        <div flex>
-            <p class="subSubHead purple">7. Was our open day visitor app useful? How could we improve it?</p>
+            <p class="subSubHead purple">7. Based on your experience of the Open Day, which of the following applies?</p>
             <md-radio-group id="q7" name="q7" ng-model="q7" ng-required="true">
-                <md-radio-button class="bodyText" ng-repeat="a in feedbackq7"
+                <md-radio-button class="bodyText" style="line-height: 3.5vh !important;" ng-repeat="a in feedbackq7"
                     ng-value="a.value">
                     {{ a.label }} <br/>
                 </md-radio-button>
             </md-radio-group>
 
-            <label class="subSubHead purple">Comments: </label>
-            <textarea class="feedbackTextarea" ng-model="q7c" ng-maxlength="500" style="margin-left: 1px" ng-maxlength="500"></textarea>
+            <label class="subSubHead purple" for="q7_comment">Comments: </label>
+            <textarea class="feedbackTextarea bodyText" ng-model="q7_comment" ng-maxlength="500"></textarea>
         </div>
-        <br>
+        <br/>
 
+        <div flex>
+            <p class="subSubHead purple">8. How could we improve the Open Day?</p>
+            <textarea id="q8" name="q8" class="feedbackTextarea bodyText" ng-model="q8" style="margin-left: 1px" ng-maxlength="500"></textarea>
+        </div>
+        <br/>
+
+        <div flex>
+            <p class="subSubHead purple">9. How would you rate the Visit us app?</p>
+            <br/>
+
+            <md-radio-group id="q9" name="q9" ng-model="q9" ng-required="true">
+                <md-radio-button class="bodyText" style="line-height: 0 !important;" ng-repeat="a in feedbackq3"
+                    ng-value="a.value">
+                    {{ a.label }} <br/>
+                </md-radio-button>
+            </md-radio-group>
+
+            <label class="subSubHead purple" for="q9_comment">Comments: </label>
+            <textarea id="q9_comment" name="q9_comment" class="feedbackTextarea bodyText" ng-model="q9_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q9 != 'Poor'"></textarea>
+            <textarea id="q9_comment" name="q9_comment" class="feedbackTextarea bodyText" ng-model="q9_comment" ng-maxlength="500" style="margin-left: 1px" ng-show="q9 == 'Poor'" ng-required="true"></textarea>
+        </div>
+        <br/>
+
+        <div flex>
+        <p class="subSubHead purple">If you would like to receive further information and/or would like to be entered into the draw to win a £100 All4One voucher, please supply us with your details below</p>
+
+            <label class="subSubHead purple" for="name">Name: </label>
+            <br/>
+            <textarea id="name" name="name" class="feedbackTextarea bodyText" ng-model="name" ng-maxlength="100"></textarea>
+            <br/>
+            <br/>
+
+            <label class="subSubHead purple" for="email">E-Mail:</label>
+            <br/>
+            <textarea id="email" name="email" class="feedbackTextarea bodyText" ng-model="email" ng-maxlength="100"></textarea>
+            <br/>
+            <br/>
+
+            <label class="subSubHead purple" for="courseName">Course Name: </label>
+            <br/>
+            <textarea id="courseName" name="courseName" class="feedbackTextarea bodyText" ng-model="courseName" ng-maxlength="100"></textarea>
+            <br/>
+            <br/>
+
+            <label class="subSubHead purple" for="furtherInfo">Further information required: </label> 
+            <br/>
+            <span flex></span>
+            <textarea id="furtherInfo" name="furtherInfo" class="feedbackTextarea bodyText" ng-model="furtherInfo" ng-maxlength="500"></textarea>
+            <br/>
+            <br/>
+        </div>
 
         <md-button class="menuButton turquoiseBG1" ng-click="submitFeedback($event)">Submit</md-button>
         <md-button class="menuButton turquoiseBG1" ng-href="#/" style="color: white !important">Cancel</md-button>
         <span style="display: none !important">{{ formValid = feedbackForm.$valid }}</span>
-        <br>
+        <br/>
         <pre class="bodyText" id="formErrors" style="display: none; color: Red">{{ formErrors }}</pre>
     </form>
 </md-content>

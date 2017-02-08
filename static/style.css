@@ -48,10 +48,10 @@ ng-md-icon {
 }
 
 .menuButton {
-    font-family: "Gibson" !important;
-    font-weight: bold !important;
-    font-size: 2.5vh !important;
-    text-transform: uppercase !important;
+    font-family: "Gibson";
+    font-weight: bold;
+    font-size: 2vh;
+    text-transform: uppercase;
     color: white;
 }
 
@@ -109,7 +109,7 @@ input {
 .secondHeader {
     font-family: "Gibson";
     font-weight: bold;
-    font-size: 4vw;
+    font-size: 6vw;
     color: white;
     text-transform: uppercase;
     padding-left: 1vw;
@@ -243,6 +243,11 @@ input {
 
 /* Misc. */
 
+.noAnimate {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
 .md-on {
     background-color: black !important;
 }
@@ -252,16 +257,40 @@ input {
     max-height: 15vh;
 }
 
- #bannerLogo {
-    max-height: 15vh;
-    max-width: 15vw;
-    margin-top: 8vh;
- }
+#bannerLogo {
+    max-height: 12vh;
+    max-width: 30vw;
+    margin-top: 6vh;
+    margin-left: 7vw;
+}
 
 
 .warnbox-content {
-    visibility: hidden;
+    display: none !important;
 }
+
+.warnbox-c1 {
+    display: none !important;
+}
+
+.warnbox-c2 {
+    display: none !important;
+}
+
+.mapWrapper {
+    position: relative;
+    margin: 0 auto;
+}
+
+#navMap {
+    height: 30%;
+}
+
+#directions-panel {
+    width: 100%;
+    padding: 0px 5px;
+}
+
 @media (orientation: landscape)
 {
     .bannerCarousel {
@@ -274,7 +303,14 @@ input {
     }
 
     #bannerLogo {
-        margin-top: 10vh !important;
+        display: none;
+    }
+
+    #bannerLogoLandscape {
+        display: inline-block !important;
+        max-width: 40vw !important;
+        margin-top: 8vh;
+        margin-left: 5vw;
     }
 
     .menuButton {
@@ -286,9 +322,26 @@ input {
     }
 
     #navMap {
-        height: 66% !important;
+        height: 69%;
+        width: 50%;
+        float: left;
+    }
+
+    #directions-panel {
+        width: 50%;
+        float: left;
     }
     
+    .mapDropDown {
+        width: 50% !important;
+        float: left;
+    }
+
+    .mapDropDown2 {
+        width: 50% !important;
+        float: right;
+    }
+
     .fattenButton {
         padding: 1vw;
         padding-top: 0.5vw !important;
@@ -301,34 +354,18 @@ input {
     }
 
     .subSubHead {
-        font-size: 2vw !important;
-        line-height: 2.75vw !important;
+        font-size: 2.25vw !important;
+        line-height: 3vw !important;
     }
 
     .introText {
         font-size: 3vw !important;
         line-height: 3.75vw;
     }
-  /* 
-    #navContainer {
-        width: 100%;
-        margin: 0 auto;
-    }
 
-    #navMap {
-        float: left;
-        width: 50% !important;
-        height: 40% !important;
+    .secondHeader {
+        font-size: 6.5vh;
     }
-
-    #directionsPanel {
-        width: 50% !important;
-        height: 40% !important;
-        float: left !important;
-        overflow: auto !important;
-        padding: 0px 5px !important;
-    }
-*/
 }
 
 .ng-pristine {
@@ -343,8 +380,20 @@ input {
     color: Red !important;
 }
 
-.ng-invalid.ng-dirty#q6 {
-    border: 1px solid red;
+.ng-invalid.ng-dirty#q3_comment {
+    border: 2px solid red;
+}
+
+.ng-invalid.ng-dirty#q4_comment {
+    border: 2px solid red;
+}
+
+.ng-invalid.ng-dirty#q6_comment {
+    border: 2px solid red;
+}
+
+.ng-invalid.ng-dirty#q9_comment {
+    border: 2px solid red;
 }
 
 md-dialog {
@@ -353,23 +402,29 @@ md-dialog {
 
 @media screen and (min-width: 1px) and (max-width: 420px) {
     .small {
-        display:inline-block !important;
+        display: inline-block !important;
+    }
+
+}
+
+@media screen and (min-width: 421px) and (max-width: 1023px) {
+    .medium {
+        display: inline-block !important;
+    }
+    
+    #bannerLogo {
+        margin-left: 10vw;
+        margin-top: 10vh;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 9999px) {
+    .large {
+        display: inline-block !important;
     }
 
     #bannerLogo {
-        max-height: 19vh !important;
-        max-width: 19vw !important; 
-    }
-}
-
-@media screen and (min-width: 421px) and (max-width: 1024px) {
-    .medium {
-        display:inline-block !important;
-    }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 9999px) {
-    .large {
-        display:inline-block !important;
+        margin-left: 10vw;
+        margin-top: 10vh;
     }
 }

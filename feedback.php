@@ -8,25 +8,33 @@ ini_set('display_errors', 1);
 
 $submitFeedback = file_get_contents("php://input");
 $request = json_decode($submitFeedback);
-$question1 = $conn->real_escape_string($request->question1);
-$question2 = $conn->real_escape_string($request->question2);
-$question2comment = $conn->real_escape_string($request->question2comment);
-$question3 = $conn->real_escape_string($request->question3);
-$question3comment = $conn->real_escape_string($request->question3comment);
-$question4 = $conn->real_escape_string($request->question4);
-$question5 = $conn->real_escape_string($request->question5);
-$question5comment = $conn->real_escape_string($request->question5comment);
-$question6 = $conn->real_escape_string($request->question6);
-$question7 = $conn->real_escape_string($request->question7);
-$question7comment = $conn->real_escape_string($request->question7comment);
+
+$q1 = $conn->real_escape_string($request->q1);
+$q2 = $conn->real_escape_string($request->q2);
+$q3 = $conn->real_escape_string($request->q3);
+$q3_comment = $conn->real_escape_string($request->q3_comment);
+$q4 = $conn->real_escape_string($request->q4);
+$q4_comment = $conn->real_escape_string($request->q4_comment);
+$q5 = $conn->real_escape_string($request->q5);
+$q6 = $conn->real_escape_string($request->q6);
+$q6_comment = $conn->real_escape_string($request->q6_comment);
+$q7 = $conn->real_escape_string($request->q7);
+$q7_comment = $conn->real_escape_string($request->q7_comment);
+$q8 = $conn->real_escape_string($request->q8);
+$q9 = $conn->real_escape_string($request->q9);
+$q9_comment = $conn->real_escape_string($request->q9_comment);
+$name = $conn->real_escape_string($request->name);
+$email = $conn->real_escape_string($request->email);
+$courseName = $conn->real_escape_string($request->courseName);
+$furtherInfo = $conn->real_escape_string($request->furtherInfo);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connection_error);
 }
 
+$sql = "INSERT INTO feedback (q1, q2, q3, q3_comment, q4, q4_comment, q5, q6, q6_comment, q7, q7_comment, q8, q9, q9_comment, name, email, courseName, furtherInfo) VALUES ('$q1', '$q2', '$q3', '$q3_comment', '$q4', '$q4_comment', '$q5', '$q6', '$q6_comment', '$q7', '$q7_comment', '$q8', '$q9', '$q9_comment', '$name', '$email', '$courseName', '$furtherInfo')";
 
-
-$sql = "INSERT INTO feedback (question1, question2, question2comment, question3, question3comment, question4, question5, question5comment, question6, question7, question7comment) VALUES ('$question1', '$question2', '$question2comment', '$question3', '$question3comment', '$question4', '$question5', '$question5comment', '$question6', '$question7', '$question7comment')";
+echo $sql;
 
 if ($conn->query($sql) === TRUE) {
     echo "Feedback submitted";
