@@ -6,9 +6,6 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
 
     $scope.q1 = '';
 
-    // While the code below could obviously be made dramatically shorter by converting them to objects indicating which days each department is open on,
-    // I find it cleaner to have a full list of all days defined. It will perform better. If this idea offends you, then feel free to change it.        
-
     $scope.feedbackq2_1 = ["TV, Film, Media and Creative Practice", "Social, Historical and Literary Studies", "Biology", "Psychology"];
 
     $scope.feedbackq2_2 = ["Architecture and Interior Architecture", "Social, Historical and Literary Studies", "Criminal Justice Studies", "Education and Childhood Studies", 
@@ -47,6 +44,8 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
         "Law"];
 
     $scope.q2 = '';
+    $scope.q2_other = '';
+    $scope.q2_2 = '';
 
     $scope.feedbackq3 = [
         { label: 'Very good', value: 'Very good' },
@@ -98,7 +97,6 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
 
     $scope.name = '';
     $scope.email = '';
-    $scope.courseName = '';
     $scope.furtherInfo = '';
 
     $scope.submitFeedback = function(ev) {
@@ -126,6 +124,7 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
         console.log($scope.formValid); 
         console.log($scope.q1);
         console.log($scope.q2);
+        console.log($scope.q2_2);
         console.log($scope.q3);
         console.log($scope.q3_comment);
         console.log($scope.q4);
@@ -140,7 +139,6 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
         console.log($scope.q9_comment);
         console.log($scope.name);
         console.log($scope.email);
-        console.log($scope.courseName);
         console.log($scope.furtherInfo);
 
         if ($scope.formValid) {
@@ -150,6 +148,8 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
                 data: {
                     q1: $scope.q1,
                     q2: $scope.q2,
+                    q2_other: $scope.q2_other,
+                    q2_2: $scope.q2_2,
                     q3: $scope.q3,
                     q3_comment: $scope.q3_comment,
                     q4: $scope.q4,
@@ -164,7 +164,6 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
                     q9_comment: $scope.q9_comment,
                     name: $scope.name,
                     email: $scope.email,
-                    courseName: $scope.courseName,
                     furtherInfo: $scope.furtherInfo,
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -191,49 +190,53 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
             if ($scope.q1 != '' && $scope.feedbackForm.q2.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 2.\n';
             }
-
-            if ($scope.feedbackForm.q3.$invalid) {
+            
+            if ($scope.feedbackForm.q2_2.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 3.\n';
             }
 
-            if ($scope.feedbackForm.q3_comment.$invalid && $scope.q3 == 'Poor') {
-                $scope.formErrors += 'You forgot to answer the question 3 comment.\n';
-            }
-
-            if ($scope.feedbackForm.q4.$invalid) {
+            if ($scope.feedbackForm.q3.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 4.\n';
             }
 
-            if ($scope.feedbackForm.q4_comment.$invalid && $scope.q4 == 'Poor') {
+            if ($scope.feedbackForm.q3_comment.$invalid && $scope.q3 == 'Poor') {
                 $scope.formErrors += 'You forgot to answer the question 4 comment.\n';
             }
 
-            if ($scope.feedbackForm.q5.$invalid) {
+            if ($scope.feedbackForm.q4.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 5.\n';
             }
 
-            if ($scope.feedbackForm.q6.$invalid) {
+            if ($scope.feedbackForm.q4_comment.$invalid && $scope.q4 == 'Poor') {
+                $scope.formErrors += 'You forgot to answer the question 5 comment.\n';
+            }
+
+            if ($scope.feedbackForm.q5.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 6.\n';
             }
 
-            if ($scope.feedbackForm.q6_comment.$invalid && $scope.q6 == 'Worse') {
-                $scope.formErrors += 'You forgot to answer the question 6 comment.\n';
-            }
-
-            if ($scope.feedbackForm.q7.$invalid) {
+            if ($scope.feedbackForm.q6.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 7.\n';
             }
 
-            if ($scope.feedbackForm.q8.$invalid) {
+            if ($scope.feedbackForm.q6_comment.$invalid && $scope.q6 == 'Worse') {
+                $scope.formErrors += 'You forgot to answer the question 7 comment.\n';
+            }
+
+            if ($scope.feedbackForm.q7.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 8.\n';
             }
 
-            if ($scope.feedbackForm.q9.$invalid) {
+            if ($scope.feedbackForm.q8.$invalid) {
                 $scope.formErrors += 'You forgot to answer question 9.\n';
             }
 
+            if ($scope.feedbackForm.q9.$invalid) {
+                $scope.formErrors += 'You forgot to answer question 10.\n';
+            }
+
             if ($scope.feedbackForm.q9_comment.$invalid && $scope.q9 == 'Poor') {
-                $scope.formErrors += 'You forgot to answer the question 9 comment.\n';
+                $scope.formErrors += 'You forgot to answer the question 10 comment.\n';
             }
         }
     };

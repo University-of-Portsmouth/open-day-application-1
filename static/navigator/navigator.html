@@ -16,7 +16,7 @@
         <td>
             <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'buildings'">
                 <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building" style="color: white !important">
-                    <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}" ng-click="setLoading()">{{ building.name }} ({{ building.code }})
+                    <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}" ng-click="setLoading()">{{ building.name }}
                     </md-option>
                 </md-select>
             </md-input-container>

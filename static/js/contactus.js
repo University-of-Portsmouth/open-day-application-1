@@ -12,7 +12,7 @@ app.controller('contactusController', ['$scope', '$interval', function($scope, $
     $scope.officeHours = function() {
 
         // First day (0) is Sunday
-        if ((d.getDay() >= 1 && d.getDay() <= 5) && (d.getDay() >= 1 && d.getDay() <= 4 && d.getHours() >= 8 && d.getHours() <= 17) || (d.getDay() == 5 && d.getHours() >= 8 && d.getHours() <= 16)) {
+        if ((d.getDay() >= 1 && d.getDay() <= 5) && ((d.getDay() >= 1 && d.getDay() <= 4 && d.getHours() >= 8 && d.getHours() <= 17) || (d.getDay() == 5 && d.getHours() >= 8 && d.getHours() <= 16))) {
 
             if (d.getDay() >= 1 && d.getDay() <= 4 && d.getHours() == 8 && d.getMinutes < 30) {
                 return false;
