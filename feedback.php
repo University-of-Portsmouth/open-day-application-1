@@ -32,15 +32,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connection_error);
 }
 
-$sql = "INSERT INTO feedback (q1, q2, q3, q3_comment, q4, q4_comment, q5, q6, q6_comment, q7, q7_comment, q8, q9, q9_comment, name, email, courseName, furtherInfo) VALUES ('$q1', '$q2', '$q3', '$q3_comment', '$q4', '$q4_comment', '$q5', '$q6', '$q6_comment', '$q7', '$q7_comment', '$q8', '$q9', '$q9_comment', '$name', '$email', '$courseName', '$furtherInfo')";
+$sql = $conn->prepare("INSERT INTO feedback (q1, q2, q3, q3_comment, q4, q4_comment, q5, q6, q6_comment, q7, q7_comment, q8, q9, q9_comment, name, email, courseName, furtherInfo) VALUES ('$q1', '$q2', '$q3', '$q3_comment', '$q4', '$q4_comment', '$q5', '$q6', '$q6_comment', '$q7', '$q7_comment', '$q8', '$q9', '$q9_comment', '$name', '$email', '$courseName', '$furtherInfo')");
 
-echo $sql;
+$sql->bind_param('ssssssssssssssssss', $q1, $q2, $q3, $q3_comment, $q4, $q4_comment, $q5, $q6, $q6_comment, $q7, $q7_comment, $q8, $q9, $q9_comment, $name, $email, $courseName, $furtherInfo);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Feedback submitted";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+$sql->execute();
 
 $conn->close();
 

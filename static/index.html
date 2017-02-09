@@ -77,8 +77,8 @@ ga('send', 'pageview');
             <!-- Footer - carousel -->
             <md-toolbar class="bannerCarousel" style="min-height: 128px !important; max-height: 128px !important; background-color: rgb(87, 60, 141);" ng-if="location != '/navigator' && location != '/parking' && location != '/vcmessage' && location != '/feedback' && location != '/plans'">
                 <div flex ng-controller="bannerController" id="banner">
-                    <div uib-carousel active="active" interval="interval" style="min-height: 128px !important; max-height: 128px !important; overflow: hidden !important: position: relative !important;">
-                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="min-height: 128px !important; max-height: 128px !important; overflow: hidden !important; position: relative !important">
+                    <div uib-carousel active="active" interval="interval" style="min-height: 128px !important; max-height: 128px !important;">
+                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="min-height: 128px !important; max-height: 128px !important;">
                             <img ng-src="{{slide.image}}"style="position: absolute; top: -100%; bottom: -100%; left: -100%; right: -100%; margin: auto;">
                             <div class="carousel-caption">
                                 <p class="subSubHead turquoise">{{slide.text}}</p>
