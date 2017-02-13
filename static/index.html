@@ -35,16 +35,15 @@
         <!-- Google Maps stuff -->
         <script src="https://maps.google.com/maps/api/js?key=AIzaSyA9UVeyPzxl3nuekmIcF-ASdsmC1bl6m54&libraries=placeses,visualization,drawing,geometry,places"></script>
         <script src="lib/ng-map.min.js"></script>
-
         <!-- Google analytics -->
-        <script>
-            (function(p,o,r,t,a,c,u,k){p['GoogleAnalyticsObject']=a;p[a]=p[a]||function(){
-                (p[a].q=p[a].q||[]).push(arguments)},p[a].l=1*new Date();c=o.createElement(r),
-                    u=o.getElementsByTagName(r)[0];c.async=1;c.src=t;u.parentNode.insertBefore(c,u)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-265018-1', 'auto');
-ga('send', 'pageview');
-        </script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-91707513-1', 'auto');
+  ga('send', 'pageview');
+</script>   
     </head>
 
     <body ng-app="UoPVisitorApp" ng-controller="mainController as ctrl" ng-cloak layout-gt-sm="column" layout="column" layout-fill onresize="checkScreenSize()">
@@ -79,7 +78,7 @@ ga('send', 'pageview');
                 <div flex ng-controller="bannerController" id="banner">
                     <div uib-carousel active="active" interval="interval" style="min-height: 128px !important; max-height: 128px !important;">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="min-height: 128px !important; max-height: 128px !important;">
-                            <img ng-src="{{slide.image}}"style="position: absolute; top: -100%; bottom: -100%; left: -100%; right: -100%; margin: auto;">
+                            <img ng-src="{{slide.image}}"style="position: absolute; top: -100%; bottom: -100%; left: -100%; right: -100%; margin: auto !important;">
                             <div class="carousel-caption">
                                 <p class="subSubHead turquoise">{{slide.text}}</p>
                             </div>

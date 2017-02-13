@@ -3,11 +3,10 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $scope.userLocation;
     $scope.loading = false;
     $scope.geoFail = false;
-    $scope.streetView = false;
-
-    var map;
-
     $scope.destination = '';
+    var map;
+    $scope.panorama;
+    var geocoder;
 
     $scope.transportType = 'WALKING';
     $scope.transportTypes = [
@@ -54,16 +53,41 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
 
     $scope.toggleStreetView = function() {
 
-        $timeout(function() { $scope.streetView = !$scope.streetView; }, 10);
-        console.log($scope.streetView);
+            var toggle = $scope.panorama.getVisible();
+
+            if (toggle == false) {
+
+                //geocoder.geocode( { 'address': $scope.destination}, function(results, status) {
+                    //if (status == 'OK') {
+                        //panorama.setPosition($scope.userLocation);
+                        //panorama.setVisible(true);
+                    //} else {
+                        //alert('Geocoding failed due to: ' + status);
+                    //}
+                //});
+                $scope.panorama.setPosition($scope.userLocation);
+                $scope.panorama.setVisible(true);
+            } else {
+                $scope.panorama.setVisible(false);
+            }
+
+            
     };
 
     NgMap.getMap({id:"navMap"}).then(function(evtMap) {
+        geocoder = new google.maps.Geocoder();
         map = evtMap;
         map.addListener('idle', function() {
             $scope.loading = false;
-            console.log($scope.loading + " loading var");
         });
+
+        var panoramaOptions = {
+            motionTracking: false
+        };
+
+        $scope.panorama = map.getStreetView();
+        $scope.panorama.setOptions(panoramaOptions);
+
     });
 
 
@@ -75,25 +99,22 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 // Timeout is called because it refreshes the view without disturbing the current digest (Google: $timeout)
-                $timeout(function() { $scope.userLocation = { lat: position.coords.latitude, lng: position.coords.longitude }; }, 50);
-            },
-
-                function() {
-                    $scope.geoFail = true;            
-                }
-            );
-        } 
+                $timeout(function() { $scope.userLocation = { lat: position.coords.latitude, lng: position.coords.longitude }; $scope.panorama.setPosition($scope.userLocation); }, 50);
+            });
+        } else {
+            $scope.geoFail = true;
+        }
     };
 
     $scope.$on('$routeChangeSuccess', function() {
         $scope.getUserLocation();
+        //$scope.panorama.setVisible(false);
     });
 
     $interval(function() { $scope.getUserLocation(); }, 2000);
 
     $scope.clearDest = function() {
         $timeout(function() { $scope.destination = ''; }, 50);
-        console.log($scope.destination);
     };
 
     $scope.parkAndRide = function() {
@@ -128,17 +149,14 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
 
 
                     if (nearest !== 'undefined' && i == $scope.carparks.length - 1) {
-                        console.log("Success");
                         resolve("The nearest car park was found");
                     } else {
-                        console.log("Failure");
                         reject(Error("Something went wrong, the nearest car park was not found"));
                     }
 
                 });
 
                 promise.then(function() {
-                    console.log("Promise fulfilled");
 
                     $timeout(function() { 
                         $scope.destination = nearest.location;
@@ -146,7 +164,6 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
                         $scope.loading = false;
                     });
 
-                    console.log("Promise fulfilled end");
                 });
             });
         }

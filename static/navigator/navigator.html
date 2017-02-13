@@ -16,27 +16,27 @@
         <td>
             <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'buildings'">
                 <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a building" style="color: white !important">
-                    <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings" value="{{building.location}}" ng-click="setLoading()">{{ building.name }}
+                    <md-option class="menuButton turquoiseBG1" ng-repeat="building in buildings | orderBy: 'name'" value="{{building.location}}" ng-click="setLoading()">{{ building.name }}
                     </md-option>
                 </md-select>
             </md-input-container>
 
             <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'trains'">
                 <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a train station" style="color: white">
-                    <md-option class="menuButton turquoiseBG1" ng-repeat="train in trains" value="{{train.location}}" ng-click="setLoading()">{{ train.name }}</md-option>
+                    <md-option class="menuButton turquoiseBG1" ng-repeat="train in trains | orderBy: 'name'" value="{{train.location}}" ng-click="setLoading()">{{ train.name }}</md-option>
                 </md-select>
             </md-input-container>
 
             <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 5px !important; margin-bottom: 5px !important;" ng-show="navMode == 'food'">
                 <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a food catering service" style="color: white">
-                    <md-option class="menuButton turquoiseBG1" ng-repeat="food in foods" value="{{food.location}}" ng-click="setLoading()">{{ food.name }}</md-option> 
+                    <md-option class="menuButton turquoiseBG1" ng-repeat="food in foods | orderBy: 'name'" value="{{food.location}}" ng-click="setLoading()">{{ food.name }}</md-option> 
                 </md-select>
             </md-input-container>
 
 
             <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 0; margin-bottom: 0" ng-show="navMode == 'parking'">
                 <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a car park" style="color: white">
-                    <md-option class="menuButton turquoiseBG1" ng-repeat="carpark in carparks" value="{{carpark.location}}" ng-click="setLoading()">{{ carpark.name }}
+                    <md-option class="menuButton turquoiseBG1" ng-repeat="carpark in carparks | orderBy: 'name'" value="{{carpark.location}}" ng-click="setLoading()">{{ carpark.name }}
                     </md-option>
                 </md-select>
             </md-input-container>
@@ -44,7 +44,7 @@
 
             <md-input-container class="md-block menuButton turquoiseBG1" flex-gt-sm style="margin-top: 0; margin-bottom: 0" ng-show="navMode == 'halls'">
                 <md-select md-no-asterisk md-no-underline class="menuButton turquoiseBG1" ng-model="destination" placeholder="Select a student hall" style="color: white">
-                    <md-option class="menuButton turquoiseBG1" ng-repeat="hall in halls" value="{{hall.location}}" ng-click="setLoading()">{{ hall.name }}
+                    <md-option class="menuButton turquoiseBG1" ng-repeat="hall in halls | orderBy: 'name'" value="{{hall.location}}" ng-click="setLoading()">{{ hall.name }}
                     </md-option>
                 </md-select>
             </md-input-container>
@@ -73,9 +73,10 @@
                 </ng-map>
             </div>
 
-
+            <md-button class="menuButton turquoiseBG1" ng-click="toggleStreetView();" ng-show="!panorama.getVisible()">Show street view</md-button>
+            <md-button class="menuButton turquoiseBG1" ng-click="toggleStreetView();" ng-show="panorama.getVisible()">Hide street view</md-button>
             <p ng-show="loading && !geoFail" class="bodyText"><img id="loadingSpinner" src="img/spinner.gif"></img> Loading, please wait...</p>
-            <p ng-show="geoFail" class="bodyText" style="color: red !important">Geolocation unable to initialise. You may need to enable "Location Services" or "Geolocation" in your mobile device settings.</p>
+            <p ng-show="geoFail" class="bodyText" style="color: red !important">Geolocation unable to initialise. You may need to enable "Location Services" or "Geolocation" in your mobile device settings and/or browser.</p>
             <div flex id="directions-panel"></div>
         </div>
 

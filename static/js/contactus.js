@@ -7,7 +7,7 @@ app.controller('contactusController', ['$scope', '$interval', function($scope, $
 
     $scope.spawnDate();
 
-    $interval(function() { $scope.spawnDate(); console.log($scope.officeHours()); }, 1000);
+    $interval(function() { $scope.spawnDate(); }, 1000);
 
     $scope.officeHours = function() {
 

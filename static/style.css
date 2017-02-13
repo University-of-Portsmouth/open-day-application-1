@@ -243,6 +243,9 @@ input {
 
 /* Misc. */
 
+.gm-iv-container {
+    display: none;
+}
 .noAnimate {
     -webkit-transition: none !important;
     transition: none !important;

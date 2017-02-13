@@ -28,6 +28,10 @@ app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locati
             templateUrl: 'contactus/contactus.html',
             controller: 'contactusController'
         })
+        .when('/wifi', {
+            templareUrl: 'wifi/wifi.html',
+            controller: 'wifiController'
+        })
 });
 
 
@@ -36,7 +40,6 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
 
     $scope.getLocation = function() {
             $scope.location = $location.path();
-            console.log($scope.location);
     };
 
     $scope.$on("$locationChangeSuccess", function(){ $scope.getLocation() });

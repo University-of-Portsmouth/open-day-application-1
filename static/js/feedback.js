@@ -121,26 +121,6 @@ app.controller('feedbackController', ['$scope', '$http', '$mdDialog', function($
         $scope.feedbackForm.q9.$setDirty();
         $scope.feedbackForm.q9_comment.$setDirty();
 
-        console.log($scope.formValid); 
-        console.log($scope.q1);
-        console.log($scope.q2);
-        console.log($scope.q2_2);
-        console.log($scope.q3);
-        console.log($scope.q3_comment);
-        console.log($scope.q4);
-        console.log($scope.q4_comment);
-        console.log($scope.q5);
-        console.log($scope.q6);
-        console.log($scope.q6_comment);
-        console.log($scope.q7);
-        console.log($scope.q7_comment);
-        console.log($scope.q8);
-        console.log($scope.q9);
-        console.log($scope.q9_comment);
-        console.log($scope.name);
-        console.log($scope.email);
-        console.log($scope.furtherInfo);
-
         if ($scope.formValid) {
             var request = $http({
                 method: "post",
