@@ -242,6 +242,17 @@ input {
 }
 
 /* Misc. */
+.buttonShadow {
+-webkit-box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.69) !important;
+-moz-box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.69) !important;
+box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.69) !important;
+}
+
+.buttonShadow:active {
+-webkit-box-shadow: inset 2px 2px 9px 0px rgba(0,0,0,0.69) !important;
+-moz-box-shadow: inset 2px 2px 9px 0px rgba(0,0,0,0.69) !important;
+box-shadow: inset 2px 2px 9px 0px rgba(0,0,0,0.69) !important;
+}
 
 .gm-iv-container {
     display: none;
@@ -334,7 +345,7 @@ input {
         width: 50%;
         float: left;
     }
-    
+
     .mapDropDown {
         width: 50% !important;
         float: left;
@@ -414,7 +425,7 @@ md-dialog {
     .medium {
         display: inline-block !important;
     }
-    
+
     #bannerLogo {
         margin-left: 10vw;
         margin-top: 10vh;

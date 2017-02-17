@@ -6,7 +6,7 @@
         <div flex>
             <p class="subSubHead purple">1. On which Open Day did you attend?</p>
             <md-select id="q1" name="q1" ng-model="q1" class="bodyText" ng-required="true" aria-label="Feedback question 1">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="date in feedbackq1" value="{{date}}">
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="date in feedbackq1" value="{{date}}">
                     {{date}}
                 </md-option>
 
@@ -17,61 +17,61 @@
             <p class="subSubHead purple">2. Which department did you visit?</p>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 8 February 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_1" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_1" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 11 February 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_2" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_2" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 15 February 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_3" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_3" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 22 February 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_4" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_4" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 25 February 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_5" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_5" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 8 March 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_6" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_6" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 11 March 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_7" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_7" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 15 March 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_8" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_8" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Wednesday 22 March 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_9" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_9" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
 
             <md-select id="q2" name="q2" ng-model="q2" class="bodyText" ng-show="q1 == 'Saturday 22 April 2017'" aria-label="Feedback question 2">
-                <md-option class="menuButton turquoiseBG1" ng-repeat="d in feedbackq2_10" value="{{d}}" >
+                <md-option class="menuButton turquoiseBG1 buttonShadow" ng-repeat="d in feedbackq2_10" value="{{d}}" >
                     {{d}}
                 </md-option>
             </md-select>
@@ -206,8 +206,8 @@
             <br/>
         </div>
 
-        <md-button class="menuButton turquoiseBG1" ng-click="submitFeedback($event)">Submit</md-button>
-        <md-button class="menuButton turquoiseBG1" ng-href="#/" style="color: white !important">Cancel</md-button>
+        <md-button class="menuButton turquoiseBG1 buttonShadow" ng-click="submitFeedback($event)">Submit</md-button>
+        <md-button class="menuButton turquoiseBG1 buttonShadow" ng-href="#/" style="color: white !important">Cancel</md-button>
         <span style="display: none !important">{{ formValid = feedbackForm.$valid }}</span>
         <br/>
         <pre class="bodyText" id="formErrors" style="display: none; color: Red">{{ formErrors }}</pre>

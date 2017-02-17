@@ -1,4 +1,4 @@
-var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngMessages']);
+var app = angular.module('UoPVisitorApp', ['ngMaterial', 'ngMdIcons', 'ngMap', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngMessages', 'ngTouch']);
 
 app.config(function($mdIconProvider, $mdThemingProvider, $routeProvider, $locationProvider) {
     $mdThemingProvider.disableTheming();
@@ -75,7 +75,13 @@ app.controller('mainController', function ($scope, $mdDialog, $route, $location,
             title: 'Contact us',
             subtitle: 'Any questions? Get in touch',
             destination: '#/contactus',
-        }
+        },
+        //{
+        //    icon: 'wifi',
+        //    title: 'Free guest Wi-Fi',
+        //    subtitle: 'placeholder',
+        //    destination: '#/wifi',
+       // }
     ];
 /*
     var originatorEv;

@@ -51,6 +51,20 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
     $scope.carparks = [];
     $scope.halls = [];
 
+    $scope.clickIcon = 'directions_walk';
+
+    $scope.toggleTransportType = function(type) {
+        if (type == 'DRIVING') {
+            $scope.transportType = 'DRIVING';
+            document.getElementById('drivingIcon').style.backgroundColor='rgb(65, 192, 190)';
+            document.getElementById('walkingIcon').style.backgroundColor='#FFFFFF';
+        } else {
+            $scope.transportType = 'WALKING';
+            document.getElementById('walkingIcon').style.backgroundColor='rgb(65, 192, 190)';
+            document.getElementById('drivingIcon').style.backgroundColor='#FFFFFF';
+        }
+    };
+
     $scope.toggleStreetView = function() {
 
             var toggle = $scope.panorama.getVisible();
@@ -82,7 +96,7 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         });
 
         var panoramaOptions = {
-            motionTracking: false
+            motionTracking: false,
         };
 
         $scope.panorama = map.getStreetView();
@@ -99,8 +113,10 @@ app.controller('navController', ['NgMap', '$scope', '$http', '$timeout', '$inter
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 // Timeout is called because it refreshes the view without disturbing the current digest (Google: $timeout)
-                $timeout(function() { $scope.userLocation = { lat: position.coords.latitude, lng: position.coords.longitude }; $scope.panorama.setPosition($scope.userLocation); }, 50);
+                $timeout(function() { $scope.userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };  }, 0);
             });
+            $timeout(function() { $scope.panorama.setPosition($scope.userLocation); }, 150);
+
         } else {
             $scope.geoFail = true;
         }
